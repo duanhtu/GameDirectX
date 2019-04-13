@@ -1,0 +1,18 @@
+Sprite anitest
+R	G	B
+0	255	165	181
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			1			25				39				2			0
+25			2			24				38				1			0
+
+
+
