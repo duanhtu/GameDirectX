@@ -1,5 +1,6 @@
 ﻿#include "Camera.h"
 #include <d3dx9.h>
+#include "Player.h"
 
 Camera * Camera::instance = 0;
 Camera * Camera::getInstance()
@@ -29,7 +30,29 @@ void Camera::convertWorldToView(float xWorld, float yWorld, float & xView, float
 
 }
 
+void Camera::update()
+{
+	/* mặc định cho camera đứng yên, chỉ khi player chạy nó mới chạy theo */
+	setDx(0);
 
+	Player* player = Player::getInstance();
+	/* nếu player đang chạy sang trái (player->getDx()<0) và phần giữa camera nằm bên phải phần giữa player */
+	if (player->getDx() < 0 && getMidX() > player->getMidX())
+	{
+		/* thì cho camera chạy theo player (về bên trái) */
+		setDx(player->getDx());
+	}
+	/* nếu player đang chạy sang phải (player->getDx()>0) và phần giữa camera nằm bên trái phần giữa player */
+	if (player->getDx() > 0 && getMidX() < player->getMidX())
+	{
+		/* thì cho camera chạy theo player (về bên phải) */
+		setDx(player->getDx());
+	}
+
+	/* cập nhật vị trí camera */
+	goX();
+	goY();
+}
 
 Camera::Camera()
 {

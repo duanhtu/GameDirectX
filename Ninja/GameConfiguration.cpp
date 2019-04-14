@@ -8,6 +8,7 @@ map<const char*, const char*>* GameConfiguration::globalsConfigurationString = 0
 /* Lấy 1 thống số ra từ 1 key cho trước */
 double GameConfiguration::GetConfiguration(const char * key)
 {
+	/* Hướng dẫn: Đọc singleton pattern để hiểu cách viết này */
 	if (globalsConfigurationDouble == 0)
 	{
 		globalsConfigurationDouble = new map<const char*, double>();
@@ -22,16 +23,22 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		/* fps là frame_per_second càng lớn càng mượt nhưng nó sử dụng nhiều cpu hơn */
 		globalsConfigurationDouble->insert(pair<const char*, double>("fps", 70));
-	
-	
-		//globalsConfigurationDouble->insert(pair<const char*, double>("object_default_ay", -80));
+
+		/* thời gian đổi frame mặc định của animation là 100 milis, cứ sau 100 milis thì animation sẽ đổi 1 frame */
+		globalsConfigurationDouble->insert(pair<const char*, double>("object_animation_time_default", 100));
+
+		/* trọng lực mặc định của đối tượng 80 (px/s^2) */
+		globalsConfigurationDouble->insert(pair<const char*, double>("object_default_ay", -80));
 
 		/* TODO tạo thêm các giá trị cấu hình double game tại đây
 		Ví dụ: globalsConfiguration->insert(pair<const char*, double>("gia_tri_key", 10)); 10 la gia tri cua gia_tri_key
 		*/
+
 	}
+	/* trả ra giá trị cấu hình tại key */
 	return globalsConfigurationDouble->at(key);
 }
+
 const char * GameConfiguration::GetConfigurationString(const char * key)
 {
 	/* Hướng dẫn: Đọc singleton pattern để hiểu cách viết này */
@@ -40,7 +47,7 @@ const char * GameConfiguration::GetConfigurationString(const char * key)
 		globalsConfigurationString = new map<const char*, const char*>();
 
 		/* Tiêu đề của cửa sổ */
-		globalsConfigurationString->insert(pair<const char*, const char*>("window_title", "NinjaGaiden"));
+		globalsConfigurationString->insert(pair<const char*, const char*>("window_title", "Ninja Gaiden"));
 		globalsConfigurationString->insert(pair<const char*, const  char*>("window_class", "win_game"));
 
 		/* TODO tạo thêm các giá trị cấu hình string game tại đây
@@ -51,9 +58,11 @@ const char * GameConfiguration::GetConfigurationString(const char * key)
 	/* trả ra giá trị cấu hình tại key */
 	return globalsConfigurationString->at(key);
 }
+
 GameConfiguration::GameConfiguration()
 {
 }
+
 GameConfiguration::~GameConfiguration()
 {
 }

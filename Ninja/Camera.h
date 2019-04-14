@@ -12,7 +12,7 @@ public:
 	   Phuong thuc nay trong sach game co gio sach ra xem se thay
 	*/
 	void convertWorldToView(float xWorld, float yWorld, float& xView, float& yView);
-	
+	void update();
 	Camera();
 	~Camera();
 };

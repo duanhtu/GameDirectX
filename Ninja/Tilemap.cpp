@@ -120,6 +120,12 @@ void Tilemap::Init(const char * folderPath)
 	/* khởi tạo bằng phương thức trên */
 	Init(tilesheetString.c_str(), matrixPathString.c_str());
 }
+
+int Tilemap::getWorldHeight()
+{
+	return tileRows * tileHeight;
+}
+
 Tilemap::Tilemap()
 {
 }

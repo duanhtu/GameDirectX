@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "GameTexture.h"
 
 /* de ve tilemap ta can them camera vao */
@@ -26,8 +26,8 @@ public:
 	/* ve tilemap bang camera */
 	void render(Camera* camera);
 
-	/* lay chieu cao cua world dung de chuyen doi toa do khi init */
-	
+	/* lấy chiều cao của world dùng để chuyển đổi tọa độ khi init */
+	int getWorldHeight();
 
 	/* tilesheetPath: duong dan tilesheet
 	matrixPath: duong dan file ma tran

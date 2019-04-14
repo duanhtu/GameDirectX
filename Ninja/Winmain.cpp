@@ -40,9 +40,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		if (deltaTime >= timePerFrame)
 		{    
 			/* time : thoi gian giua 2 frame dung de tinh van toc doi tuong */
-			
-
-			Game::getInstance()->GameUpdate();
+			float time = deltaTime / 1000.0f;
+			Game::getInstance()->GameUpdate(time);
 
 			startTime = now;
 			if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE))

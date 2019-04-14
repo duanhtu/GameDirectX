@@ -1,4 +1,6 @@
-#include "Game.h"
+﻿#include "Game.h"
+
+
 /* singleton pattern */
 Game * Game::instance = 0;
 Game * Game::getInstance()
@@ -7,44 +9,38 @@ Game * Game::getInstance()
 		instance = new Game();
 	return instance;
 }
-/* Cac cau lenh khoi tao game */
+
+/* Các câu lệnh khởi tạo game */
 void Game::GameInit()
 {
-		
-	/* khoi tao tilemap */
-	tilemap = new Tilemap();
-	tilemap->Init("test/demotile");
+	/* khởi tạo tilemap */
+	world = new World();
+	world->Init("test/demotile");
 	Camera::getInstance()->set(
 		0,
-		200,
-		/* kich thuoc cua camera bang kich thuoc cua backbuffer*/
+		200, /* y camera */
+			 /* kích thước của camera bằng với kích thước của backbuffer */
 		GLOBALS_D("backbuffer_width"),
-		GLOBALS_D("backbuffer_height")
-		);
-	/* di chuyen camera theo phuong phai 1 px */
-Camera::getInstance()->setDx(1);
-	/* khoi tao danh sach vi tri khung hinh */
-	
+		GLOBALS_D("backbuffer_height"));
 }
-/* Cac cau lenh cap nhat game */
-void Game::GameUpdate()
+/* Các câu lệnh cập nhật game */
+void Game::GameUpdate(float dt)
 {
-	
-	 /* di chuyen camera theo phuong x */
-	Camera::getInstance()->goX();
-	
+	/* cập nhật đối tượng trong world */
+	world->update(dt);
 }
-/* Cac cau lenh ve cua game */
+/* Các câu lệnh vẽ của game */
 void Game::GameRender()
 {
-
-	/* ve tile len game */
-	//tilemap->render(Camera::getInstance());
-	tilemap->render(Camera::getInstance());
+	/* vẽ đối tượng trong world */
+	world->render();
 }
+
 Game::Game()
 {
 }
+
+
 Game::~Game()
 {
 }
