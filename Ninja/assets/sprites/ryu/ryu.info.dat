@@ -1,18 +1,95 @@
-Sprite anitest
+Sprite Ryu
 R	G	B
 0	255	165	181
 Animation Count
-1
+8
 
 
 Name
-Animation
+Ryu_Stand
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			22				39				2			0
+
+
+Name
+Ryu_Run
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			22				39				2			0
+22			2			25				37				1			0
+47			0			27				39				5			0
+74			3			25				36				5			0
+
+
+Name
+Ryu_Jump
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+454			14			21				25				3			0
+475			15			31				24				4			0
+506			14			24				25				5			0
+530			16			26				23				2			0
+
+
+Name
+Ryu_Attack
+Frame Count
+3
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+99			1			27				38				6			0
+126			3			40				36				0			0
+166			2			33				37				0			0
+
+
+Name
+Ryu_AttackSuriken
+Frame Count
+3
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+199			2			28				37				3			0
+227			4			32				35				3			0
+259			4			34				35				5			0
+
+
+Name
+Ryu_Climb
 Frame Count
 2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			1			25				39				2			0
-25			2			24				38				1			0
+293			5			22				34				12			0
+315			8			20				31				12			0
 
+
+Name
+Ryu_SitAttack
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+335			12			22				27				2			0
+357			13			24				26				4			0
+381			13			42				26				4			0
+423			13			31				26				3			0
+
+Name
+Animation
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+556			12			31				27				3			0
+587			10			28				29				3			0
+615			14			29				25				1			0
+644			11			27				28				2			0
 
 

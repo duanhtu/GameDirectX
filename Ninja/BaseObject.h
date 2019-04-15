@@ -48,7 +48,10 @@ public:
 	camera dùng để biến đổi tọa độ của object từ world sang view
 	*/
 	virtual void render(Camera* camera);
-
+	int getAnimation();
+	void setAnimation(int animation);
+	int getFrameAnimation();
+	void setFrameAnimation(int frameAnimation);
 	BaseObject();
 	~BaseObject();
 };

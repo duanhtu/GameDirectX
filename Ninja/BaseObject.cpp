@@ -96,3 +96,28 @@ BaseObject::BaseObject()
 BaseObject::~BaseObject()
 {
 }
+
+int BaseObject::getAnimation()
+{
+	return animationIndex;
+}
+
+void BaseObject::setAnimation(int animation)
+{
+	/* nếu set khác animation thì cho chạy lại từ frame 0 */
+	if (this->animationIndex != animation)
+	{
+		setFrameAnimation(0);
+	}
+	this->animationIndex = animation;
+}
+
+int BaseObject::getFrameAnimation()
+{
+	return frameIndex;
+}
+
+void BaseObject::setFrameAnimation(int frameAnimation)
+{
+	this->frameIndex = frameAnimation;
+}
