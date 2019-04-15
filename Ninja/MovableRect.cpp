@@ -1,4 +1,4 @@
-#include "MovableRect.h"
+﻿#include "MovableRect.h"
 
 
 MovableRect::MovableRect()
@@ -30,6 +30,27 @@ void MovableRect::goY()
 {
 	Rect::moveY(dy);
 }
+
+void MovableRect::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
+{
+}
+
+void MovableRect::preventMovementWhenCollision(float collisionTime, int nx, int ny)
+{
+	/* dời vật M về sát vật S */
+	if (nx != 0)
+	{
+		/* nếu vật va chạm theo phương x */
+		setDx(collisionTime*getDx());
+	}
+	if (ny != 0)
+	{
+		/* nếu vật va chạm theo phương y */
+		setDy(collisionTime*getDy());
+	}
+}
+
 MovableRect::~MovableRect()
 {
 }
+

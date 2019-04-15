@@ -1,5 +1,5 @@
 ﻿#include "Player.h"
-
+#include "PhysicsObject.h"
 
 
 Player * Player::instance = 0;
@@ -45,7 +45,13 @@ void Player::onUpdate(float dt)
 	{
 		setDy(0);
 	}
+	PhysicsObject::onUpdate(dt);
+}
 
+void Player::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
+{
+	/* ngăn chặn di chuyển */
+	preventMovementWhenCollision(collisionTime, nx, ny);
 }
 
 Player::Player()

@@ -9,6 +9,7 @@ class Player :
 public:
 	static Player* getInstance();
 	void onUpdate(float dt) override;
+	virtual void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
 	Player();
 	~Player();
 };

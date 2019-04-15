@@ -3,11 +3,12 @@
 #include"Player.h"
 #include"Samurai.h"
 #include"KEY.h"
+#include "Collision.h"
 
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath)
 {
 	/* khởi tạo vị trí player */
-	Player::getInstance()->set(0, 100, 16, 30);
+	Player::getInstance()->set(32, 80, 16, 32);
 
 
 	/* khởi tạo tilemap */
@@ -70,6 +71,7 @@ void World::update(float dt)
 	{
 		/* cập nhật đối tượng */
 		allObjects[i]->update(dt);
+		Collision::CheckCollision(Player::getInstance(), allObjects[i]);
 	}
 	///* di chueyern camera để thấy toàn cảnh */
 	//Camera::getInstance()->moveX(1);

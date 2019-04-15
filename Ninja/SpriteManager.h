@@ -18,9 +18,8 @@ enum SPRITE_INFO
 
 	SPRITE_INFO_SAMURAI = 1, /* 1.png sẽ tương ứng với sprite này */
 
-							 // thêm các sprite_info khác ở đây
-
-							 SPRITE_COUNT
+	// thêm các sprite_info khác ở đây
+	SPRITE_COUNT
 };
 
 class SpriteManager
