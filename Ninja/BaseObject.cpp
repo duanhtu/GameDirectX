@@ -82,8 +82,40 @@ void BaseObject::render(Camera* camera)
 	float xView, yView;
 	/* tính tọa độ view để vẽ đối tượng lên màn hình */
 	camera->convertWorldToView(getX(), getY(), xView, yView);
+	/* hướng mặt mặc định của bức hình */
+	TEXTTURE_DIRECTION imageDirection = sprite->image->direction;
+
+	/* hướng mặt của nhân vật */
+	TEXTTURE_DIRECTION currentDirection = getDirection();
+	/* nếu hướng mặt của nhân vật khác với hướng mặt trong bức hình thì tiến hành lật hình */
+	if (imageDirection != currentDirection)
+	{
+		int currentFrameWidth = getSprite()->animations[getAnimation()]->frames[getFrameAnimation()]->right -
+			getSprite()->animations[getAnimation()]->frames[getFrameAnimation()]->left;
+		D3DXMATRIX flipMatrix;
+		D3DXMatrixIdentity(&flipMatrix);
+		flipMatrix._11 = -1;
+		flipMatrix._41 = 2 * (xView + currentFrameWidth / 2);
+		GameDirectX::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+	}
 	/* vẽ đối tượng lên màn hình */
 	sprite->render(xView, yView, animationIndex, frameIndex);
+	if (direction != imageDirection)
+	{
+		/* khôi phục lại ma trận mặc định */
+		D3DXMATRIX identityMatrix;
+		D3DXMatrixIdentity(&identityMatrix);
+		GameDirectX::getInstance()->GetSprite()->SetTransform(&identityMatrix);
+	}
+}
+TEXTTURE_DIRECTION BaseObject::getDirection()
+{
+	return direction;
+}
+
+void BaseObject::setDirection(TEXTTURE_DIRECTION direction)
+{
+	this->direction = direction;
 }
 
 BaseObject::BaseObject()

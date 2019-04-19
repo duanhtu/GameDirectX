@@ -36,7 +36,7 @@ void Player::onUpdate(float dt)
 			/* set animation chạy */
 			setAnimation(PLAYER_ACTION_RUN);
 			setVx(-vx);
-			//setDirection(TEXTURE_DIRECTION_LEFT);
+			setDirection(TEXTURE_DIRECTION_LEFT);
 		}
 		/* nếu giữ key phải */
 		else if (keyRightDown)
@@ -44,7 +44,7 @@ void Player::onUpdate(float dt)
 			/* set animation chạy */
 			setAnimation(PLAYER_ACTION_RUN);
 			setVx(vx);
-			//setDirection(TEXTURE_DIRECTION_RIGHT);
+			setDirection(TEXTURE_DIRECTION_RIGHT);
 		}
 		else
 		{
