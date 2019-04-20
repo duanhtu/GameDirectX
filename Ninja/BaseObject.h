@@ -23,8 +23,6 @@ class BaseObject :
 	trạng thái đứng yên
 	*/
 	bool isLastFrameAnimationDone;
-	/* huong mat cua doi tuong */
-	TEXTTURE_DIRECTION direction;
 public:
 	void setSprite(Sprite*sprite);
 	Sprite* getSprite();
@@ -54,8 +52,6 @@ public:
 	void setAnimation(int animation);
 	int getFrameAnimation();
 	void setFrameAnimation(int frameAnimation);
-	TEXTTURE_DIRECTION getDirection();
-	void setDirection(TEXTTURE_DIRECTION direction);
 	BaseObject();
 	~BaseObject();
 };
