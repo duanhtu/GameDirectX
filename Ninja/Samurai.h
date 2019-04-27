@@ -1,11 +1,12 @@
-﻿#pragma once
+﻿
 #pragma once
-#include "PhysicsObject.h"
-/* lớp Zoombie để hiện thực lớp BaseObject */
+
+#include "BaseObject.h"
 class Samurai :
-	public PhysicsObject
+	public BaseObject
 {
 public:
+	void onCollision(MovableRect* other, float collisionTime, int nx, int ny)override;
 	Samurai();
 	~Samurai();
 };

@@ -3,27 +3,23 @@
 #include"Sprite.h"
 #include"GameTime.h"
 #include"Camera.h"
+#include"CollisionType.h"
 
-/* Đây là đối tượng của game. Kế thừa lại lớp đối tượng có thể chuyển động */
 class BaseObject :
 	public MovableRect
 {
 	Sprite* sprite;
-	/* animation hiện tại và frame index hiện tại */
 	int animationIndex, frameIndex;
 
-	/* dùng để làm chậm animation */
 	GameTime animationGameTime;
 
-	/* dừng animation */
 	bool pauseAnimation;
-	/* kiểm tra xem frame cuối cùng đã hoàn thành hay chưa
-	Ví dụ action có 3 frame thì animation sẽ chạy frame 0 1 2 0 1 2 0 1 2. tức là khi frame=2 hoàn thành và chuyển
-	sang frame 0 thì biến này sẽ là true. cái này thường làm lúc simon đánh cây roi, khi hoàn thành việc đánh nó quay về
-	trạng thái đứng yên
-	*/
+	
 	bool isLastFrameAnimationDone;
+	TEXTTURE_DIRECTION direction;
 public:
+
+
 	void setSprite(Sprite*sprite);
 	Sprite* getSprite();
 
@@ -52,6 +48,10 @@ public:
 	void setAnimation(int animation);
 	int getFrameAnimation();
 	void setFrameAnimation(int frameAnimation);
+
+	TEXTTURE_DIRECTION	getDirection();
+	void setDirection(TEXTTURE_DIRECTION direction);
+
 	BaseObject();
 	~BaseObject();
 };

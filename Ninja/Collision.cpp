@@ -24,7 +24,6 @@ float Collision::SweptAABB(MovableRect* M, MovableRect* S, float & normalx, floa
 	float xInvEntry, yInvEntry;
 	float xInvExit, yInvExit;
 
-	// Tính khoảng cách cần để xảy ra va chạm (InvEntry) và khoảng cách để ra khỏi va chạm (InvExit):
 	if (M->getDx() > 0.0f)
 	{
 		xInvEntry = S->getX() - (M->getX() + M->getWidth());
@@ -47,7 +46,6 @@ float Collision::SweptAABB(MovableRect* M, MovableRect* S, float & normalx, floa
 		yInvExit = (S->getY() - S->getHeight()) - M->getY();
 	}
 
-	// Tính thời gian để bắt đầu và chạm và thời gian để kết thúc va chạm theo mỗi phương:
 	float xEntry, yEntry;
 	float xExit, yExit;
 
@@ -73,12 +71,9 @@ float Collision::SweptAABB(MovableRect* M, MovableRect* S, float & normalx, floa
 		yExit = yInvExit / (float)M->getDy();
 	}
 
-	// Thời gian để Box bắt đầu va chạm và thời gian để kết thúc va chạm:
 	float entryTime = MAX(xEntry, yEntry);
 	float exitTime = MIN(xExit, yExit);
 
-	// Trường hợp không xảy ra va chạm:
-	//Logger::getInstance()->getWidth()rite_text_to_log_file(std::to_string(GetVy()));
 	if (entryTime > exitTime || xEntry < 0.0f && yEntry < 0.0f || xEntry > 1.0f || yEntry > 1.0f)
 	{
 		normalx = 0.0f;
@@ -86,17 +81,16 @@ float Collision::SweptAABB(MovableRect* M, MovableRect* S, float & normalx, floa
 		return 1.0f;
 	}
 
-	else // Trường hợp xảy ra va chạm:
+	else 
 	{
-		// Xác định hướng của pháp tuyến khi va chạm:
 		if (xEntry > yEntry)
 		{
-			if (M->getDx() < 0.0f) // Chạm vào bề mặt bên phải của block:
+			if (M->getDx() < 0.0f) 
 			{
 				normalx = 1.0f;
 				normaly = 0.0f;
 			}
-			else					// Chạm vào bề mặt bên trái của block:
+			else					
 			{
 				normalx = -1.0f;
 				normaly = 0.0f;
@@ -104,42 +98,34 @@ float Collision::SweptAABB(MovableRect* M, MovableRect* S, float & normalx, floa
 		}
 		else
 		{
-			if (M->getDy() < 0.0f) // Chạm vào bề mặt phía trên của block:
+			if (M->getDy() < 0.0f) 
 			{
 				normalx = 0.0f;
 				normaly = 1.0f;
 			}
-			else					// Chạm vào bề mặt phía dưới của block:
+			else					
 			{
 				normalx = 0.0f;
 				normaly = -1.0f;
 			}
 		}
 
-		// Trả về khoảng thời gian cần thiết để bắt đầu xảy ra va chạm:
 		return entryTime;
 	}
 }
 void Collision::CheckCollision(MovableRect * M, MovableRect * S)
 {
-	/* KIỂM TRA VÀ XỬ LÝ VA CHẠM */
-	/* tìm broadphasebox của M */
 	MovableRect* broadPhaseBox = GetSweptBroadPhaseBox(M);
-	/* nếu BroadPhaseBox của M cắt S */
 	if (AABBCheck(broadPhaseBox, S))
 	{
-		delete broadPhaseBox; //*********************
+		delete broadPhaseBox; 
 		float normalX = 0, normalY = 0;
-		/* thì tính collisionTime */
 		float collisionTime = SweptAABB(M, S, normalX, normalY);
-		/* Nếu collisionTime<1 thì chắc chắn có va chạm */
 		if (collisionTime < 1)
 		{
-			/* onCollision là phương thức ảo để hiện thực xử lý va chạm của mỗi đối tượng */
 			M->onCollision(S, collisionTime, normalX, normalY);
 			S->onCollision(M, collisionTime, normalX, normalY);
 		}
-		/* còn nếu collisionTime==1 thì không có va chạm */
 
 		return;
 	}

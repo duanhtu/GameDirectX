@@ -33,34 +33,27 @@ void BaseObject::setIsLastFrameAnimationDone(bool isLastFrameAnimationDone)
 void BaseObject::onInitFromFile(ifstream& fs, int mapHeight)
 {
 	int collisionType, x, y, width, height;
-	/* đọc collision type x y width height từ file. collision_type thì sẽ học ở bài sau */
 	fs >> collisionType >> x >> y >> width >> height;
-	/* do y của đối tượng trong file là tọa độ hướng từ trên xuống
-	Nhưng y của game chúng ta làm thì gốc tọa độ bên dưới nên ta chuyển nó về cho đúng tọa độ logic */
+	
 	y = mapHeight - y;
-	/* khởi tạo x y width height cho đối tượng */
 	set(x, y, width, height);
+	setCollisionType((COLLISION_TYPE)collisionType);
 }
 
 void BaseObject::update(float dt)
 {
-	/* chúng ta di chuyển đối tượng trước khi cập nhật */
 	goX();
 	goY();
 
-	/* mặc định đây không phải là frame cuối đã hoàn thành */
 	setIsLastFrameAnimationDone(false);
 
-	/* nếu đối tượng này có hình và không bị pauseAnimation thì ta cập nhật animation cho nó */
 	if (!pauseAnimation && getSprite() != NULL)
 	{
 		if (animationGameTime.atTime())
 		{
-			/* cập nhật animation cho đối tượng */
 			sprite->update(animationIndex, frameIndex);
 			if (frameIndex == 0)
 			{
-				/* nếu frame cuối đã chạy thì sau khi cập nhật frameIndex sẽ là 0 */
 				setIsLastFrameAnimationDone(true);
 			}
 		}
@@ -71,7 +64,6 @@ void BaseObject::update(float dt)
 
 void BaseObject::onUpdate(float dt)
 {
-	/* mặc định sẽ cho chạy animation */
 	setPauseAnimation(false);
 }
 
@@ -80,10 +72,28 @@ void BaseObject::render(Camera* camera)
 	if (getSprite() == 0)
 		return;
 	float xView, yView;
-	/* tính tọa độ view để vẽ đối tượng lên màn hình */
 	camera->convertWorldToView(getX(), getY(), xView, yView);
-	/* vẽ đối tượng lên màn hình */
+	TEXTTURE_DIRECTION imageDirection = sprite->image->direction;
+
+	TEXTTURE_DIRECTION currentDirection = getDirection();
+	if (imageDirection != currentDirection)
+	{
+		int currentFrameWidth = getSprite()->animations[getAnimation()]->frames[getFrameAnimation()]->right -
+			getSprite()->animations[getAnimation()]->frames[getFrameAnimation()]->left;
+		D3DXMATRIX flipMatrix;
+		D3DXMatrixIdentity(&flipMatrix);
+		flipMatrix._11 = -1;
+		flipMatrix._41 = 2 * (xView + currentFrameWidth / 2);
+		GameDirectX::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+	}
 	sprite->render(xView, yView, animationIndex, frameIndex);
+
+	if (direction != imageDirection)
+	{
+		D3DXMATRIX identityMatrix;
+		D3DXMatrixIdentity(&identityMatrix);
+		GameDirectX::getInstance()->GetSprite()->SetTransform(&identityMatrix);
+	}
 }
 
 BaseObject::BaseObject()
@@ -104,7 +114,6 @@ int BaseObject::getAnimation()
 
 void BaseObject::setAnimation(int animation)
 {
-	/* nếu set khác animation thì cho chạy lại từ frame 0 */
 	if (this->animationIndex != animation)
 	{
 		setFrameAnimation(0);
@@ -120,4 +129,13 @@ int BaseObject::getFrameAnimation()
 void BaseObject::setFrameAnimation(int frameAnimation)
 {
 	this->frameIndex = frameAnimation;
+}
+
+TEXTTURE_DIRECTION BaseObject::getDirection()
+{
+	return direction;
+}
+void BaseObject::setDirection(TEXTTURE_DIRECTION direction)
+{
+	this->direction = direction;
 }

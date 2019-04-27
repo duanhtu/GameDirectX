@@ -10,8 +10,8 @@
 class GameDirectX 
 {
 private:
-	LPDIRECT3DDEVICE9 d3ddv; // Cong cu load hinh ve surface
-	LPDIRECT3DSURFACE9 backBuffer; // Bo nho tam
+	LPDIRECT3DDEVICE9 d3ddv; 
+	LPDIRECT3DSURFACE9 backBuffer; 
 	LPD3DXSPRITE sprite;
 	HWND hWnd;
 	static GameDirectX* instance;

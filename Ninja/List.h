@@ -16,8 +16,7 @@ struct List
 		}
 		Node()
 		{
-			//m_value = value;
-			//p_Next = p.Pre = 0;
+			
 		}
 	};
 	Node* pHead;
@@ -38,7 +37,7 @@ struct List
 		return false;
 	}
 	void _Add(className item)
-	{    /*for(Node* p = pHead;p;p=p->Next) if(p->m_value==item) return;*/
+	{   
 
 		if (_Contain(item))
 			return;
