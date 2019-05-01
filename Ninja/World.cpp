@@ -8,7 +8,7 @@
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath,const char * collisionTypeCollidePath)
 {
 	/* khởi tạo vị trí player */
-	Player::getInstance()->set(32, 80, 16, 32);
+	Player::getInstance()->set(32, 100, 16, 32);
 
 
 	/* khởi tạo tilemap */
@@ -112,7 +112,6 @@ void World::update(float dt)
 		}
 
 	}
-	//Camera::getInstance()->moveX(1);
 	Player::getInstance()->update(dt);
 	Camera::getInstance()->update();
 }
