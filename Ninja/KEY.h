@@ -10,7 +10,9 @@ public:
 		isDownDown,
 		isJumpDown,
 		isPreviousJumpDown,
-		isJumpPress;
+		isJumpPress,
+		isPreviousDownDown,
+		isDownPress;
 
 	static KEY* instance;
 	static KEY* getInstance();

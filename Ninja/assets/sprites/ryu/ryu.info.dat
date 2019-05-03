@@ -39,6 +39,15 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 
 
 Name
+Ryu_Sit
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+335			0			22				39				2			0
+
+
+Name
 Ryu_Attack
 Frame Count
 3

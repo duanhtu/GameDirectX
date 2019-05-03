@@ -38,6 +38,11 @@ void Player::onUpdate(float dt)
 			setVx(vx);
 			setDirection(TEXTURE_DIRECTION_RIGHT);
 		}
+		else  if (keyDownDown) //is sit
+		{
+			setAnimation(PLAYER_ACTION_SIT);
+			setVx(0);
+		}
 		else
 		{
 			setAnimation(PLAYER_ACTION_STAND);

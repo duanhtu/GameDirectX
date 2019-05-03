@@ -16,12 +16,16 @@ KEY * KEY::getInstance()
 void KEY::update()
 {
 	isUpDown = GetAsyncKeyState(VK_UP);
-	isDownDown = GetAsyncKeyState(VK_DOWN);
 	isLeftDown = GetAsyncKeyState(VK_LEFT);
 	isRightDown = GetAsyncKeyState(VK_RIGHT);
-	isPreviousJumpDown = isJumpDown;
+
+	isDownDown = GetAsyncKeyState(VK_DOWN);
+	isDownPress = isDownDown && !isPreviousDownDown;
+	isPreviousDownDown = isDownDown;
+
 	isJumpDown = GetAsyncKeyState(getKeyChar('x'));
 	isJumpPress = (isPreviousJumpDown == false && isJumpDown == true);
+	isPreviousJumpDown = isJumpDown;
 }
 
 KEY::KEY()
