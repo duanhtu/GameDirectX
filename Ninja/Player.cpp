@@ -14,13 +14,13 @@ Player * Player::getInstance()
 
 void Player::onUpdate(float dt)
 {
-	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown, keyJumpPress;
+	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown, keyJumpPress, keyAttackPress;
 	keyLeftDown = KEY::getInstance()->isLeftDown;
 	keyRightDown = KEY::getInstance()->isRightDown;
 	keyUpDown = KEY::getInstance()->isUpDown;
 	keyDownDown = KEY::getInstance()->isDownDown;
-
 	keyJumpPress = KEY::getInstance()->isJumpPress;
+	keyAttackPress = KEY::getInstance()->isAttackPress;
 
 	float vx = GLOBALS_D("player_vx");
 
@@ -40,13 +40,28 @@ void Player::onUpdate(float dt)
 		}
 		else  if (keyDownDown) //is sit
 		{
-			setAnimation(PLAYER_ACTION_SIT);
+			/*
+			if (keyAttackPress)
+			{
+				
+			}
+			else {
+				setAnimation(PLAYER_ACTION_SIT);
+			}
+			*/
+			setAnimation(PLAYER_ACTION_ATTACK_SIT);
 			setVx(0);
 		}
 		else
 		{
-			setAnimation(PLAYER_ACTION_STAND);
 			setVx(0);
+			if (keyAttackPress)
+			{
+				setAnimation(PLAYER_ACTION_ATTACK);
+			}
+			else {
+				setAnimation(PLAYER_ACTION_STAND);
+			}
 		}
 		
 		if (keyJumpPress)

@@ -59,6 +59,18 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 
 
 Name
+Ryu_SitAttack
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+335			12			22				27				2			0
+357			13			24				26				4			0
+381			13			42				26				4			0
+423			13			31				26				3			0
+
+
+Name
 Ryu_AttackSuriken
 Frame Count
 3

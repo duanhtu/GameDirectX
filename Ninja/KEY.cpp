@@ -26,6 +26,10 @@ void KEY::update()
 	isJumpDown = GetAsyncKeyState(getKeyChar('x'));
 	isJumpPress = (isPreviousJumpDown == false && isJumpDown == true);
 	isPreviousJumpDown = isJumpDown;
+
+	isAttackDown = GetAsyncKeyState(getKeyChar('z'));
+	isAttackPress = isAttackDown && !isPreviousAttackDown;
+	isPreviousAttackDown = isAttackDown;
 }
 
 KEY::KEY()

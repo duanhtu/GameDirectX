@@ -12,7 +12,10 @@ public:
 		isPreviousJumpDown,
 		isJumpPress,
 		isPreviousDownDown,
-		isDownPress;
+		isDownPress,
+		isAttackDown,
+		isAttackPress,
+		isPreviousAttackDown;
 
 	static KEY* instance;
 	static KEY* getInstance();
