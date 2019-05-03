@@ -24,56 +24,66 @@ void Player::onUpdate(float dt)
 
 	float vx = GLOBALS_D("player_vx");
 
-	if (getIsOnGround())
-	{
-		if (keyLeftDown)
-		{
-			setAnimation(PLAYER_ACTION_RUN);
-			setVx(-vx);
-			setDirection(TEXTURE_DIRECTION_LEFT);
-		}
-		else if (keyRightDown)
-		{
-			setAnimation(PLAYER_ACTION_RUN);
-			setVx(vx);
-			setDirection(TEXTURE_DIRECTION_RIGHT);
-		}
-		else  if (keyDownDown) //is sit
-		{
-			/*
-			if (keyAttackPress)
-			{
-				
-			}
-			else {
-				setAnimation(PLAYER_ACTION_SIT);
-			}
-			*/
+	if (keyAttackPress && !isOnAttack) {
+		setIsOnAttack(true);
+		setVx(0);
+		if(keyDownDown) {
 			setAnimation(PLAYER_ACTION_ATTACK_SIT);
-			setVx(0);
 		}
 		else
 		{
-			setVx(0);
-			if (keyAttackPress)
-			{
-				setAnimation(PLAYER_ACTION_ATTACK);
-			}
-			else {
-				setAnimation(PLAYER_ACTION_STAND);
-			}
+			setAnimation(PLAYER_ACTION_ATTACK);
 		}
-		
-		if (keyJumpPress)
-		{
-			setVy(100);
-		}
-	}
-	else 
-	{
-		setAnimation(PLAYER_ACTION_JUMP);
 	}
 
+	if (getIsLastFrameAnimationDone() && isOnAttack) {
+		setIsOnAttack(false);
+	}
+
+	if (!isOnAttack)
+	{
+		if (getIsOnGround())
+		{
+			if (keyLeftDown)
+			{
+				setAnimation(PLAYER_ACTION_RUN);
+				setVx(-vx);
+				setDirection(TEXTURE_DIRECTION_LEFT);
+			}
+			else if (keyRightDown)
+			{
+				setAnimation(PLAYER_ACTION_RUN);
+				setVx(vx);
+				setDirection(TEXTURE_DIRECTION_RIGHT);
+			}
+			else  if (keyDownDown) //is sit
+			{
+				setVx(0);
+				setAnimation(PLAYER_ACTION_SIT);
+			}
+			else if (keyJumpPress) {
+				setVy(GLOBALS_D("player_vy_jump"));
+			}
+			else
+			{
+				setVx(0);
+				setAnimation(PLAYER_ACTION_STAND);
+				/*
+				if (keyAttackPress)
+				{
+					setAnimation(PLAYER_ACTION_ATTACK);
+				}
+				else {
+
+				}
+				*/
+			}
+		}
+		else
+		{
+			setAnimation(PLAYER_ACTION_JUMP);
+		}
+	}
 
 	PhysicsObject::onUpdate(dt);
 }
@@ -87,9 +97,15 @@ void Player::onCollision(MovableRect * other, float collisionTime, int nx, int n
 	//}
 }
 
+void Player::setIsOnAttack(bool isOnAttack)
+{
+	this->isOnAttack = isOnAttack;
+}
+
 Player::Player()
 {
 	setSprite(SPR(SPRITE_INFO_RYU));
+	setIsOnAttack(false);
 }
 
 
