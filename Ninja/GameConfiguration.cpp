@@ -9,27 +9,17 @@ double GameConfiguration::GetConfiguration(const char * key)
 	if (globalsConfigurationDouble == 0)
 	{
 		globalsConfigurationDouble = new map<const char*, double>();
-
 		globalsConfigurationDouble->insert(pair<const char*, double>("window_width", 512));
 		globalsConfigurationDouble->insert(pair<const char*, double>("window_height", 448));
-
 		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_width", 256));
 		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_height", 224));
-
 		globalsConfigurationDouble->insert(pair<const char*, double>("fps", 70));
-
 		globalsConfigurationDouble->insert(pair<const char*, double>("object_animation_time_default", 100));
-
 		globalsConfigurationDouble->insert(pair<const char*, double>("object_default_ay", -180));
-
-
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 60)); 
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vy_jump", 120)); 
-
-
-		
-
-
+		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_distance_to_activ", 150));
+		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_vx", 60));
 	}
 	return globalsConfigurationDouble->at(key);
 }

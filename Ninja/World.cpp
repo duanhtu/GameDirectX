@@ -7,21 +7,17 @@
 
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath,const char * collisionTypeCollidePath)
 {
-	/* khởi tạo vị trí player */
 	Player::getInstance()->set(32, 100, 16, 32);
 
-
-	/* khởi tạo tilemap */
 	tilemap.Init(tilesheetPath, matrixPath);
 
 	int worldHeight = tilemap.getWorldHeight();
-	/* khoi tao phan loai doi tuong */
+
 	for (size_t i = 0; i < COLLISION_TYPE_COUNT; i++)
 	{ 
 		objectCategories._Add(new List<BaseObject*>());
 	}
 
-	/* khởi tạo đối tượng */
 	int objectCount;
 	ifstream fs(objectsPath);
 	fs >> objectCount;
@@ -29,7 +25,6 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 	{
 		BaseObject* obj;
 		int id;
-		/* đọc id đối tượng */
 		fs >> id;
 		switch (id)
 		{
@@ -42,19 +37,14 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 			obj = new BaseObject();
 			break;
 		}
-		/* đọc thông số của đối tượng */
 		obj->onInitFromFile(fs, worldHeight);
 		if (id >= 0)
 		{
-			/* nếu id đối tượng không âm tức đối tượng có sprite ta gán sprite cho nó */
 			obj->setSprite(SPR(id));
 		}
-		/* thêm đối tượng vào danh sách */
 		allObjects._Add(obj);
-		/* them object vao tung loai doi tuong */
 		objectCategories.at(obj->getCollisionType())->_Add(obj);
 	}
-	/* đọc collisiontype collide */
 	int numberOfCollisionTypeCollides = 0;
 	ifstream fsColli(collisionTypeCollidePath);
 	fsColli >> numberOfCollisionTypeCollides;
@@ -72,7 +62,6 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 
 void World::Init(const char * folderPath)
 {
-	/* tìm đường dẫn tilesheet và matrix object */
 	string folderPathString = (string)folderPath;
 	string tilesheetString = folderPathString;
 	tilesheetString.append("/tilesheet.png");
@@ -82,7 +71,6 @@ void World::Init(const char * folderPath)
 	objectPathString.append("/objects.dat");
 	string collisionTypeCollidePath = folderPathString;
 	collisionTypeCollidePath.append("/collision_type_collides.dat");
-
 	Init(tilesheetString.c_str(), matrixPathString.c_str(), objectPathString.c_str(),collisionTypeCollidePath.c_str());
 }
 

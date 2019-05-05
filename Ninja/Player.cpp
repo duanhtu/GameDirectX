@@ -27,7 +27,7 @@ void Player::onUpdate(float dt)
 	if (keyAttackPress && !isOnAttack) {
 		setIsOnAttack(true);
 		setVx(0);
-		if(keyDownDown) {
+		if (keyDownDown) {
 			setAnimation(PLAYER_ACTION_ATTACK_SIT);
 		}
 		else
@@ -61,9 +61,6 @@ void Player::onUpdate(float dt)
 				setVx(0);
 				setAnimation(PLAYER_ACTION_SIT);
 			}
-			else if (keyJumpPress) {
-				setVy(GLOBALS_D("player_vy_jump"));
-			}
 			else
 			{
 				setVx(0);
@@ -77,6 +74,10 @@ void Player::onUpdate(float dt)
 
 				}
 				*/
+			}
+
+			if (keyJumpPress) {
+				setVy(GLOBALS_D("player_vy_jump"));
 			}
 		}
 		else
@@ -92,8 +93,8 @@ void Player::onCollision(MovableRect * other, float collisionTime, int nx, int n
 {
 	//if (other->getCollisionType() == COLLISION_TYPE_GROUND)
 	//{
-		preventMovementWhenCollision(collisionTime, nx, ny);
-		PhysicsObject::onCollision(other, collisionTime, nx, ny);
+	preventMovementWhenCollision(collisionTime, nx, ny);
+	PhysicsObject::onCollision(other, collisionTime, nx, ny);
 	//}
 }
 

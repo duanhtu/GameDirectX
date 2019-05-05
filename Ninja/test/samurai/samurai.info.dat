@@ -1,17 +1,26 @@
-Sprite samurai
+Sprite FrameSamurai
 R	G	B
 0	255	165	181
 Animation Count
-1
+2
 
 
 Name
 Animation
 Frame Count
-2
+1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			0			30				33				3			0
+0			7			28				34				1			0
+
+
+Name
+Animation
+Frame Count
+3
+
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			0			30				33				3	
+0			7			28				34				1			0
+28			7			29				34				5			0
+57			0			20				41				6			6
 
