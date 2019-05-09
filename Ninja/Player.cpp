@@ -24,68 +24,77 @@ void Player::onUpdate(float dt)
 
 	float vx = GLOBALS_D("player_vx");
 
+	PLAYER_ACTION action;
+
 	if (keyAttackPress && !isOnAttack) {
 		setIsOnAttack(true);
-		setVx(0);
-		if (keyDownDown) {
-			setAnimation(PLAYER_ACTION_ATTACK_SIT);
-		}
-		else
-		{
-			setAnimation(PLAYER_ACTION_ATTACK);
-		}
 	}
 
 	if (getIsLastFrameAnimationDone() && isOnAttack) {
 		setIsOnAttack(false);
 	}
 
-	if (!isOnAttack)
+	if (getIsOnGround())
 	{
-		if (getIsOnGround())
+		if (keyLeftDown)
 		{
-			if (keyLeftDown)
-			{
-				setAnimation(PLAYER_ACTION_RUN);
-				setVx(-vx);
-				setDirection(TEXTURE_DIRECTION_LEFT);
-			}
-			else if (keyRightDown)
-			{
-				setAnimation(PLAYER_ACTION_RUN);
-				setVx(vx);
-				setDirection(TEXTURE_DIRECTION_RIGHT);
-			}
-			else  if (keyDownDown) //is sit
-			{
-				setVx(0);
-				setAnimation(PLAYER_ACTION_SIT);
-			}
-			else
-			{
-				setVx(0);
-				setAnimation(PLAYER_ACTION_STAND);
-				/*
-				if (keyAttackPress)
-				{
-					setAnimation(PLAYER_ACTION_ATTACK);
-				}
-				else {
+			setDirection(TEXTURE_DIRECTION_LEFT);
+		}
+		if (keyRightDown)
+		{
+			setDirection(TEXTURE_DIRECTION_RIGHT);
+		}
+		if (keyDownDown)
+		{
+			action = PLAYER_ACTION::PLAYER_ACTION_SIT;
+			setVx(0);
 
-				}
-				*/
-			}
-
-			if (keyJumpPress) {
-				setVy(GLOBALS_D("player_vy_jump"));
+			if (isOnAttack)
+			{
+				action = PLAYER_ACTION::PLAYER_ACTION_ATTACK_SIT;
 			}
 		}
 		else
 		{
-			setAnimation(PLAYER_ACTION_JUMP);
+			bool isMoveDown = keyLeftDown || keyRightDown;
+
+			if (isMoveDown)
+			{
+				setVx(getDirection()* vx);
+				action = PLAYER_ACTION::PLAYER_ACTION_RUN;
+			}
+			else
+			{
+				setVx(0);
+				action = PLAYER_ACTION::PLAYER_ACTION_STAND;
+			}
+
+			if (isOnAttack)
+			{
+				action = PLAYER_ACTION::PLAYER_ACTION_ATTACK;
+			}
+
+			if (keyJumpPress)
+			{
+				setVy(GLOBALS_D("player_vy_jump"));
+			}
+		}
+	}
+	else
+	{
+		action = PLAYER_ACTION::PLAYER_ACTION_JUMP;
+		if (isOnAttack)
+		{
+			action = PLAYER_ACTION::PLAYER_ACTION_ATTACK;
 		}
 	}
 
+	if (isOnAttack && getIsOnGround())
+	{
+		setVx(0);
+	}
+
+	setAnimation(action);
 	PhysicsObject::onUpdate(dt);
 }
 
