@@ -116,6 +116,7 @@ Player::Player()
 {
 	setSprite(SPR(SPRITE_INFO_RYU));
 	setIsOnAttack(false);
+	setRenderActive(true);
 }
 
 

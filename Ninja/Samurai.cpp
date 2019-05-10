@@ -18,12 +18,13 @@ void Samurai::onUpdate(float dt)
 	switch (samuraiState)
 	{
 	case SAMURAI_STATE_INVISIBLE:
+		setRenderActive(false);
 		setVx(0);
 		setDx(0);
-		setAnimation(SAMURAI_ACTION_STAND);
 		if (getMidX() - Player::getInstance()->getMidX() <= GLOBALS_D("samurai_distance_to_activ"))
 		{
 			setSamuraiState(SAMURAI_STATE_VISIBLE);
+			setRenderActive(true);
 		}
 		break;
 	case SAMURAI_STATE_VISIBLE:

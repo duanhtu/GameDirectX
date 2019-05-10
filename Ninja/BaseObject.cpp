@@ -71,6 +71,8 @@ void BaseObject::render(Camera* camera)
 {
 	if (getSprite() == 0)
 		return;
+	if (!getRenderActive())
+		return;
 	float xView, yView;
 	camera->convertWorldToView(getX(), getY(), xView, yView);
 	TEXTTURE_DIRECTION imageDirection = sprite->image->direction;
@@ -138,4 +140,13 @@ TEXTTURE_DIRECTION BaseObject::getDirection()
 void BaseObject::setDirection(TEXTTURE_DIRECTION direction)
 {
 	this->direction = direction;
+}
+
+void BaseObject::setRenderActive(bool renderActive)
+{
+	this->renderActive = renderActive;
+}
+bool BaseObject::getRenderActive()
+{
+	return this->renderActive;
 }
