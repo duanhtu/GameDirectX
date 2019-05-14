@@ -7,6 +7,7 @@
 #include"Cheetah.h"
 #include"Hawl.h"
 #include"Butterfly.h"
+#include"Death.h"
 
 
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath,const char * collisionTypeCollidePath)
@@ -47,6 +48,10 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 
 		case SPRITE_INFO_BUTTERFLY:
 			obj = new Butterfly();
+			break;
+
+		case SPRITE_INFO_DEATH:
+			obj = new Death();
 			break;
 
 		default:

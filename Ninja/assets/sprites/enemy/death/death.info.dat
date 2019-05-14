@@ -1,0 +1,17 @@
+Sprite deathgod
+R	G	B
+0	0	0	0
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			31				48				27			0
+31			0			32				48				27			0
+
+

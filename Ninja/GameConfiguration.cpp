@@ -25,6 +25,9 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("cheetah_distance_to_activ", 200));
 		globalsConfigurationDouble->insert(pair<const char*, double>("cheetah_vx", 100));
+
+		globalsConfigurationDouble->insert(pair<const char*, double>("death_distance_to_activ", 200));
+		globalsConfigurationDouble->insert(pair<const char*, double>("death_vx", 40));
 	}
 	return globalsConfigurationDouble->at(key);
 }

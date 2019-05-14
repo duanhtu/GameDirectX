@@ -94,6 +94,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Cheetah.cpp" />
     <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="Death.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameConfiguration.cpp" />
     <ClCompile Include="GameDirectX.cpp" />
@@ -123,6 +124,7 @@
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionType.h" />
     <ClInclude Include="CollisionTypeCollide.h" />
+    <ClInclude Include="Death.h" />
     <ClInclude Include="FrameAnimation.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameConfiguration.h" />

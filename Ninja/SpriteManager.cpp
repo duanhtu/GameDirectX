@@ -24,6 +24,7 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_CHEETAH]->InitFromFile("assets/sprites/enemy/cheetah/image.png", "assets/sprites/enemy/cheetah/cheetah.info.dat");
 	sprites[SPRITE_INFO_HAWL]->InitFromFile("assets/sprites/enemy/hawl/image.png", "assets/sprites/enemy/hawl/hawl.info.dat");
 	sprites[SPRITE_INFO_BUTTERFLY]->InitFromFile("assets/sprites/butterfly/image.png", "assets/sprites/butterfly/butterfly.info.dat");
+	sprites[SPRITE_INFO_DEATH]->InitFromFile("assets/sprites/enemy/death/image.png","assets/sprites/enemy/death/death.info.dat");
 
 }
 SpriteManager::~SpriteManager()
