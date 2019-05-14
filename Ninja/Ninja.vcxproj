@@ -90,7 +90,9 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="BaseObject.cpp" />
+    <ClCompile Include="Butterfly.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Cheetah.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameConfiguration.cpp" />
@@ -98,6 +100,7 @@
     <ClCompile Include="GameTexture.cpp" />
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="GameUtils.cpp" />
+    <ClCompile Include="Hawl.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="MovableRect.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
@@ -114,7 +117,9 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BaseObject.h" />
+    <ClInclude Include="Butterfly.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Cheetah.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="CollisionType.h" />
     <ClInclude Include="CollisionTypeCollide.h" />
@@ -125,6 +130,7 @@
     <ClInclude Include="GameTexture.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="GameUtils.h" />
+    <ClInclude Include="Hawl.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MovableRect.h" />
