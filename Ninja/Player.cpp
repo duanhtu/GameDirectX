@@ -14,24 +14,33 @@ Player * Player::getInstance()
 
 void Player::onUpdate(float dt)
 {
-	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown, keyJumpPress, keyAttackPress;
+	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown, keyJumpPress, keyAttackPress, keyAttackSurikenDown;
 	keyLeftDown = KEY::getInstance()->isLeftDown;
 	keyRightDown = KEY::getInstance()->isRightDown;
 	keyUpDown = KEY::getInstance()->isUpDown;
 	keyDownDown = KEY::getInstance()->isDownDown;
 	keyJumpPress = KEY::getInstance()->isJumpPress;
 	keyAttackPress = KEY::getInstance()->isAttackPress;
+	keyAttackSurikenDown = KEY::getInstance()->isAttackSurikenDown;
 
 	float vx = GLOBALS_D("player_vx");
 
 	PLAYER_ACTION action;
 
-	if (keyAttackPress && !isOnAttack) {
+	if (keyAttackPress  && !isOnAttack) {
 		setIsOnAttack(true);
 	}
 
 	if (getIsLastFrameAnimationDone() && isOnAttack) {
 		setIsOnAttack(false);
+	}
+
+	if (keyAttackSurikenDown && !isOnAttackSuriken && !isOnAttack) {
+		setIsOnAttackSuriken(true);
+	}
+
+	if (getIsLastFrameAnimationDone() && isOnAttackSuriken) {
+		setIsOnAttackSuriken(false);
 	}
 
 	if (getIsOnGround())
@@ -74,6 +83,11 @@ void Player::onUpdate(float dt)
 				action = PLAYER_ACTION::PLAYER_ACTION_ATTACK;
 			}
 
+			if (isOnAttackSuriken)
+			{
+				action = PLAYER_ACTION::PLAYER_ACTION_ATTACK_SURIKEN;
+			}
+
 			if (keyJumpPress)
 			{
 				setVy(GLOBALS_D("player_vy_jump"));
@@ -86,6 +100,10 @@ void Player::onUpdate(float dt)
 		if (isOnAttack)
 		{
 			action = PLAYER_ACTION::PLAYER_ACTION_ATTACK;
+		}
+		if (isOnAttackSuriken)
+		{
+			action = PLAYER_ACTION::PLAYER_ACTION_ATTACK_SURIKEN;
 		}
 	}
 
@@ -100,11 +118,11 @@ void Player::onUpdate(float dt)
 
 void Player::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
 {
-	//if (other->getCollisionType() == COLLISION_TYPE_GROUND)
-	//{
-	preventMovementWhenCollision(collisionTime, nx, ny);
-	PhysicsObject::onCollision(other, collisionTime, nx, ny);
-	//}
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
+	{
+		preventMovementWhenCollision(collisionTime, nx, ny);
+		PhysicsObject::onCollision(other, collisionTime, nx, ny);
+	}
 }
 
 void Player::setIsOnAttack(bool isOnAttack)
@@ -116,7 +134,13 @@ Player::Player()
 {
 	setSprite(SPR(SPRITE_INFO_RYU));
 	setIsOnAttack(false);
+	setIsOnAttackSuriken(false);
 	setRenderActive(true);
+}
+
+void Player::setIsOnAttackSuriken(bool isOnAttack)
+{
+	this->isOnAttackSuriken = isOnAttack;
 }
 
 

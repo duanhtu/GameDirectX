@@ -1,0 +1,17 @@
+Sprite hawl
+R	G	B
+0	0	0	0
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			26				40				5			17
+26			2			24				38				3			23
+
+

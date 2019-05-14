@@ -1,0 +1,17 @@
+Sprite bufterfly
+R	G	B
+0	255	165	181
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			19				27				0			4
+19			5			17				22				1			0
+
+

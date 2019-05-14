@@ -28,12 +28,45 @@ void Samurai::onUpdate(float dt)
 		}
 		break;
 	case SAMURAI_STATE_VISIBLE:
-		int direction = getDirection();
-		setVx(GLOBALS_D("samurai_vx")*-1);
-		setAnimation(SAMURAI_ACTION_WALK);
+		if (Samurai::isOnBridge)
+		{
+			int end = getInitBox()->getX() - 16;
+			int begin = getInitBox()->getX() - Samurai::distanceChangeDirection ;
+			if (getX() <= begin)
+			{
+				setDirection(TEXTURE_DIRECTION_RIGHT);
+				setVx(GLOBALS_D("samurai_vx")*1);
+			}
+			if (getX() >= end)
+			{
+				setDirection(TEXTURE_DIRECTION_LEFT);
+				setVx(GLOBALS_D("samurai_vx")*-1);
+			}
+			setAnimation(SAMURAI_ACTION_WALK);
+		}
+		else
+		{
+			setDirection(TEXTURE_DIRECTION_LEFT);
+			setVx(GLOBALS_D("samurai_vx")*-1);
+			setAnimation(SAMURAI_ACTION_WALK);
+		}
 		break;
 	}
 	PhysicsObject::onUpdate(dt);
+}
+
+void Samurai::onInit(ifstream& fs)
+{
+	int onBridge;
+	fs >> onBridge;
+	if (onBridge) {
+		Samurai::isOnBridge = true;
+		fs >> Samurai::distanceChangeDirection;
+	}
+	else {
+		Samurai::isOnBridge = false;
+	}
+	//setDirection((TEXTTURE_DIRECTION)direction);
 }
 
 void Samurai::setSamuraiState(SAMURAI_STATE samuraiState)

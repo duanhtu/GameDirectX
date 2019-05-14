@@ -4,10 +4,14 @@
 #include"Samurai.h"
 #include"KEY.h"
 #include "Collision.h"
+#include"Cheetah.h"
+#include"Hawl.h"
+#include"Butterfly.h"
+
 
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath,const char * collisionTypeCollidePath)
 {
-	Player::getInstance()->set(32, 100, 16, 32);
+	Player::getInstance()->set(64, 100, 16, 32);
 
 	tilemap.Init(tilesheetPath, matrixPath);
 
@@ -31,6 +35,18 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 
 		case SPRITE_INFO_SAMURAI:
 			obj = new Samurai();
+			break;
+		
+		case SPRITE_INFO_CHEETAH:
+			obj = new Cheetah();
+			break;
+
+		case SPRITE_INFO_HAWL:
+			obj = new Hawl(worldHeight);
+			break;
+
+		case SPRITE_INFO_BUTTERFLY:
+			obj = new Butterfly();
 			break;
 
 		default:

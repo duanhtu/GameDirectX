@@ -9,7 +9,8 @@ enum PLAYER_ACTION
 	PLAYER_ACTION_JUMP,
 	PLAYER_ACTION_SIT,
 	PLAYER_ACTION_ATTACK,
-	PLAYER_ACTION_ATTACK_SIT
+	PLAYER_ACTION_ATTACK_SIT,
+	PLAYER_ACTION_ATTACK_SURIKEN
 };
 
 class Player :
@@ -17,11 +18,13 @@ class Player :
 {
 	static Player* instance;
 	bool isOnAttack;
+	bool isOnAttackSuriken;
 public:
 	static Player* getInstance();
 	void onUpdate(float dt) override;
 	virtual void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
 	void setIsOnAttack(bool isOnAttack);
+	void setIsOnAttackSuriken(bool isOnAttack);
 	Player();
 	~Player();
 };

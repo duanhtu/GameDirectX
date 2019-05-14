@@ -1,0 +1,17 @@
+Sprite cheetah
+R	G	B
+0	0	0	0
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			44				28				4			4
+44			6			38				22				8			0
+
+

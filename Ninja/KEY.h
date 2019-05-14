@@ -15,7 +15,8 @@ public:
 		isDownPress,
 		isAttackDown,
 		isAttackPress,
-		isPreviousAttackDown;
+		isPreviousAttackDown,
+		isAttackSurikenDown;
 
 	static KEY* instance;
 	static KEY* getInstance();

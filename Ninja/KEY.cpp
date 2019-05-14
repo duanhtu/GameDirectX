@@ -30,6 +30,8 @@ void KEY::update()
 	isAttackDown = GetAsyncKeyState(getKeyChar('z'));
 	isAttackPress = isAttackDown && !isPreviousAttackDown;
 	isPreviousAttackDown = isAttackDown;
+
+	isAttackSurikenDown = GetAsyncKeyState(getKeyChar('c'));
 }
 
 KEY::KEY()

@@ -38,6 +38,14 @@ void BaseObject::onInitFromFile(ifstream& fs, int mapHeight)
 	y = mapHeight - y;
 	set(x, y, width, height);
 	setCollisionType((COLLISION_TYPE)collisionType);
+	onInit(fs);
+	Rect* initBox = new Rect();
+	initBox->set(x, y, width, height);
+	setInitBox(initBox);
+}
+
+void BaseObject::onInit(ifstream& fs)
+{
 }
 
 void BaseObject::update(float dt)
@@ -149,4 +157,14 @@ void BaseObject::setRenderActive(bool renderActive)
 bool BaseObject::getRenderActive()
 {
 	return this->renderActive;
+}
+
+Rect * BaseObject::getInitBox()
+{
+	return initBox;
+}
+
+void BaseObject::setInitBox(Rect * initBox)
+{
+	this->initBox = initBox;
 }
