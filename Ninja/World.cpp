@@ -8,7 +8,7 @@
 #include"Hawl.h"
 #include"Butterfly.h"
 #include"Death.h"
-
+#include"Solicol.h"
 
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath,const char * collisionTypeCollidePath)
 {
@@ -52,6 +52,9 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 
 		case SPRITE_INFO_DEATH:
 			obj = new Death();
+			break;
+		case SPRITE_INFO_SOLICOL:
+			obj = new Solicol();
 			break;
 
 		default:

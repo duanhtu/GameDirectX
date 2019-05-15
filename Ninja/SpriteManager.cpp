@@ -25,6 +25,7 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_HAWL]->InitFromFile("assets/sprites/enemy/hawl/image.png", "assets/sprites/enemy/hawl/hawl.info.dat");
 	sprites[SPRITE_INFO_BUTTERFLY]->InitFromFile("assets/sprites/butterfly/image.png", "assets/sprites/butterfly/butterfly.info.dat");
 	sprites[SPRITE_INFO_DEATH]->InitFromFile("assets/sprites/enemy/death/image.png","assets/sprites/enemy/death/death.info.dat");
+	sprites[SPRITE_INFO_SOLICOL]->InitFromFile("assets/sprites/enemy/solicol/image.png","assets/sprites/enemy/solicol/solidercol.info.dat");
 
 }
 SpriteManager::~SpriteManager()

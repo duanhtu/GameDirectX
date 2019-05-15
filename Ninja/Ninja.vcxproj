@@ -108,6 +108,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Samurai.cpp" />
+    <ClCompile Include="Solicol.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Tilemap.cpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Samurai.h" />
+    <ClInclude Include="Solicol.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="Tilemap.h" />

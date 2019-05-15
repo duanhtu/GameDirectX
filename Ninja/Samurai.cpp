@@ -35,19 +35,19 @@ void Samurai::onUpdate(float dt)
 			if (getX() <= begin)
 			{
 				setDirection(TEXTURE_DIRECTION_RIGHT);
-				setVx(GLOBALS_D("samurai_vx")*1);
+				setVx(GLOBALS_D("samurai_vx")*getDirection());
 			}
 			if (getX() >= end)
 			{
 				setDirection(TEXTURE_DIRECTION_LEFT);
-				setVx(GLOBALS_D("samurai_vx")*-1);
+				setVx(GLOBALS_D("samurai_vx")*getDirection());
 			}
 			setAnimation(SAMURAI_ACTION_WALK);
 		}
 		else
 		{
 			setDirection(TEXTURE_DIRECTION_LEFT);
-			setVx(GLOBALS_D("samurai_vx")*-1);
+			setVx(GLOBALS_D("samurai_vx")*getDirection());
 			setAnimation(SAMURAI_ACTION_WALK);
 		}
 		break;
@@ -66,7 +66,6 @@ void Samurai::onInit(ifstream& fs)
 	else {
 		Samurai::isOnBridge = false;
 	}
-	//setDirection((TEXTTURE_DIRECTION)direction);
 }
 
 void Samurai::setSamuraiState(SAMURAI_STATE samuraiState)

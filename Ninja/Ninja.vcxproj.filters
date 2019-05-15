@@ -79,6 +79,9 @@
     <ClCompile Include="Death.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Solicol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FrameAnimation.h">
@@ -166,6 +169,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Death.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Solicol.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

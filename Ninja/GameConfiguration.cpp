@@ -28,6 +28,9 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("death_distance_to_activ", 200));
 		globalsConfigurationDouble->insert(pair<const char*, double>("death_vx", 40));
+
+		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_distance_to_activ", 150));
+		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_vx", 60));
 	}
 	return globalsConfigurationDouble->at(key);
 }
