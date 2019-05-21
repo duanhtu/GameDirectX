@@ -4,16 +4,15 @@
 #include"BaseObject.h"
 #include"CollisionTypeCollide.h"
 #include "GridRect.h"
+#include "Grid.h"
 
 class World
 {
 	Tilemap tilemap;
-
 	List<BaseObject*> allObjects;
-
 	List<CollisionTypeCollide*> collisionTypeCollides;
-	List<List<BaseObject*>*> objectCategories;
-	List<GridRect*> allGridRects;
+	Grid grid;
+
 public:
 	void Init(const char* tilesheetPath, 
 		const char* matrixPath, 

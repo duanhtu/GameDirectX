@@ -101,6 +101,7 @@
     <ClCompile Include="GameTexture.cpp" />
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="GameUtils.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="GridRect.cpp" />
     <ClCompile Include="Hawl.cpp" />
     <ClCompile Include="KEY.cpp" />
@@ -134,6 +135,7 @@
     <ClInclude Include="GameTexture.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="GameUtils.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="GridRect.h" />
     <ClInclude Include="Hawl.h" />
     <ClInclude Include="KEY.h" />

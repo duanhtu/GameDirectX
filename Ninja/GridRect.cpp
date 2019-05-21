@@ -7,7 +7,7 @@ List<BaseObject*> GridRect::getGridRectObjects()
 	return gridRectObjects;
 }
 
-void GridRect::addObjectToProperGridRect(List<GridRect*> allGridRects, BaseObject* object)
+void GridRect::addObjectToProperGridRect(List<GridRect*>& allGridRects, BaseObject* object)
 {
 	float objectXBottom = object->getX() + object->getWidth();
 	float objectYBottom = object->getY() + object->getHeight();

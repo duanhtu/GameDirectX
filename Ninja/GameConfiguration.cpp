@@ -18,7 +18,7 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("object_default_ay", -180));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 60)); 
-		globalsConfigurationDouble->insert(pair<const char*, double>("player_vy_jump", 120)); 
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_vy_jump", 130)); 
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_distance_to_activ", 150));
 		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_vx", 60));
