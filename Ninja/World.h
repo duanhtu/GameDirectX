@@ -21,8 +21,6 @@ public:
 		const char* gridPath);
 	void Init(const char* folderPath);
 	void update(float dt);
-
-
 	void render();
 	World();
 	~World();

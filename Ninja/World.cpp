@@ -19,13 +19,6 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 
 	int worldHeight = tilemap.getWorldHeight();
 
-	/*
-	for (size_t i = 0; i < COLLISION_TYPE_COUNT; i++)
-	{ 
-		objectCategories._Add(new List<BaseObject*>());
-	}
-	*/
-
 	int objectCount;
 	ifstream fs(objectsPath);
 	fs >> objectCount;
@@ -70,7 +63,6 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 			obj->setSprite(SPR(id));
 		}
 		allObjects._Add(obj);
-		//objectCategories.at(obj->getCollisionType())->_Add(obj);
 	}
 	int numberOfCollisionTypeCollides = 0;
 	ifstream fsColli(collisionTypeCollidePath);
@@ -84,20 +76,6 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 		collisionTypeCollide->COLLISION_TYPE_2 = (COLLISION_TYPE)collisionType2;
 		collisionTypeCollides._Add(collisionTypeCollide);
 	}
-	/*
-	ifstream fsGrid(gridPath);
-	int numberGridRect;
-	float widthGirdRect, heightGridRect;
-	fsGrid >> numberGridRect >> widthGirdRect >> heightGridRect;
-	for (size_t i = 0; i < numberGridRect; i++)
-	{
-		float x, y;
-		fsGrid >> x >> y;
-		GridRect* gridRect = new GridRect();
-		gridRect->set(x, y, widthGirdRect, heightGridRect);
-		allGridRects._Add(gridRect);
-	}
-	*/
 	grid.Init(gridPath);
 }
 
@@ -122,47 +100,11 @@ void World::update(float dt)
 
 	KEY::getInstance()->update();
 	int worldHeight = tilemap.getWorldHeight();
+	grid.clearAllGridRectObjects();
 	for (size_t i = 0; i < allObjects.Count; i++)
 	{
-		/*
-		float objectXBottom = allObjects[i]->getX() + allObjects[i]->getWidth();
-		float realYTop = worldHeight - allObjects[i]->getY();
-		float objectYBottom =  realYTop + allObjects[i]->getHeight();
-		for (size_t j = 0; j < allGridRects.Count; j++) {
-			float rectXBottom = allGridRects.at(j)->getX() + allGridRects.at(j)->getWidth();
-			float rectYBottom = allGridRects.at(j)->getY() + allGridRects.at(j)->getHeight();
-			if (allObjects[i]->getX() >= allGridRects.at(j)->getX()
-				&& realYTop >= allGridRects.at(j)->getY()
-				&& objectXBottom <= rectXBottom
-				&& objectYBottom <= rectYBottom
-				)
-			{
-				allGridRects.at(j)->addObject(allObjects[i]);
-				break;
-			}
-		}
-		*/
 		grid.addObjectToProperGridRect(allObjects[i], worldHeight);
 	}
-	/*
-	objectCategories.Clear();
-	for (size_t i = 0; i < COLLISION_TYPE_COUNT; i++)
-	{
-		objectCategories._Add(new List<BaseObject*>());
-	}
-	List<BaseObject*> collisionObjects;
-	for (size_t i = 0; i < allGridRects.Count; i++)
-	{
-		if (Collision::AABBCheck(allGridRects.at(i), Camera::getInstance()))
-		{
-			for (size_t j = 0; j < allGridRects.at(i)->getGridRectObjects().Count; j++)
-			{
-				collisionObjects._Add(allGridRects.at(i)->getGridRectObjects().at(j));
-				objectCategories.at(allGridRects.at(i)->getGridRectObjects().at(j)->getCollisionType())->_Add(allGridRects.at(i)->getGridRectObjects().at(j));
-			}
-	}
-	}
-	*/
 	List<BaseObject*> collisionObjects = grid.getCollisionObjects();
 	for (size_t i = 0; i < collisionObjects.Count; i++)
 	{
@@ -174,10 +116,6 @@ void World::update(float dt)
 	{
 		COLLISION_TYPE col1 = collisionTypeCollides.at(i)->COLLISION_TYPE_1;
 		COLLISION_TYPE col2 = collisionTypeCollides.at(i)->COLLISION_TYPE_2;
-
-		//List<BaseObject*>* collection1 = objectCategories.at(col1);
-		//List<BaseObject*>* collection2 = objectCategories.at(col2);
-
 		List<BaseObject*>* collection1 = grid.getObjectCategories().at(col1);
 		List<BaseObject*>* collection2 = grid.getObjectCategories().at(col2);
 

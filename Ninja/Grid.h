@@ -9,6 +9,7 @@ public:
 	List<BaseObject*> getCollisionObjects();
 	List<List<BaseObject*>*> getObjectCategories();
 	void Init(const char* gridPath);
+	void clearAllGridRectObjects();
 	Grid();
 	~Grid();
 };

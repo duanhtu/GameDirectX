@@ -26,10 +26,9 @@ void Grid::addObjectToProperGridRect(BaseObject* object, int worldHeight)
 	for (size_t j = 0; j < allGridRects.Count; j++) {
 		float rectXBottom = allGridRects.at(j)->getX() + allGridRects.at(j)->getWidth();
 		float rectYBottom = allGridRects.at(j)->getY() + allGridRects.at(j)->getHeight();
-		if (object->getX() >= allGridRects.at(j)->getX()
-			&& realYTop >= allGridRects.at(j)->getY()
-			&& objectXBottom <= rectXBottom
-			&& objectYBottom <= rectYBottom
+		if ((object->getX() >= allGridRects.at(j)->getX() && realYTop >= allGridRects.at(j)->getY())
+			&& ( (objectXBottom <= rectXBottom && objectYBottom <= rectYBottom) 
+				|| (object->getX() < rectXBottom && object->getY() < rectYBottom))
 			)
 		{
 			allGridRects.at(j)->addObject(object);
@@ -63,6 +62,14 @@ List<BaseObject*> Grid::getCollisionObjects()
 List<List<BaseObject*>*> Grid::getObjectCategories()
 {
 	return objectCategories;
+}
+
+void Grid::clearAllGridRectObjects()
+{
+	for (size_t i = 0; i < allGridRects.Count; i++)
+	{
+		allGridRects.at(i)->clearGridRectObjects();
+	}
 }
 
 Grid::Grid()
