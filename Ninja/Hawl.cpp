@@ -12,117 +12,66 @@ void Hawl::setHawlState(HAWL_STATE hawlState)
 
 void Hawl::onUpdate(float dt)
 {
-	/*
-	setAnimation(HAWL_ACTION_FLY);
-	MovableRect* broadPhaseBox = Collision::GetSweptBroadPhaseBox(Player::getInstance());
-	boolean test = Collision::AABBCheck(broadPhaseBox, &discoverSpace);
+	auto ryu = Player::getInstance();
 	switch (hawlState)
 	{
-	case HAWl_STATE_WAIT:
-		if (Collision::AABBCheck(broadPhaseBox, &discoverSpace)
-			&& !isActivity
-			)
+	case BIRD_STATE_INVISIBLE:
+		setRenderActive(false);
+		if (Collision::AABBCheck(Camera::getInstance(), this))
 		{
-			setHawlState(HAWL_STATE_VISIBLE);
-			isActivity = true;
+			setHawlState(BIRD_STATE_FOLLOW_PLAYER);
+			setRenderActive(true);
 		}
 		break;
-	case HAWL_STATE_VISIBLE:
+	case BIRD_STATE_FOLLOW_PLAYER:
 	{
-		int d = 20;
-		alpha += 1;
-		if (alpha >= 360)
+		auto r = GLOBALS_D("bird_r");
+
+		float dy = 0;
+		auto x = getX(), y = getY(), xr = ryu->getX(), yr = ryu->getY();
+
+		auto deltax = x - xr, deltay = y - yr;
+
+		if (abs(deltax) < GLOBALS_D("bird_min_x") || abs(deltay) < GLOBALS_D("bird_min_x"))
 		{
-			alpha -= 360;
+			setHawlState(BIRD_STATE_RUN_UNTIL_RETURN);
 		}
-		setY(getY() + d * sin(alpha * 0.1));
+
+		dy = r * sqrt((deltay*deltay) / (deltax*deltax + deltay * deltay));
+
+		if (y - yr > 0)
+		{
+			dy = -dy;
+		}
+
+		auto dx = dy * deltax / deltay;
+		if (dx < 0)
+		{
+			setDirection(TEXTURE_DIRECTION_LEFT);
+		}
+		else
+		{
+			setDirection(TEXTURE_DIRECTION_RIGHT);
+		}
+
+		setDx(dx);
+		setDy(dy);
+
+		break;
+	}
+	case BIRD_STATE_RUN_UNTIL_RETURN:
+	{
+		auto x = getX(), y = getY(), xr = ryu->getX(), yr = ryu->getY();
+		auto deltax = x - xr, deltay = y - yr;
+		if (deltax*deltax + deltay * deltay  > GLOBALS_D("bird_max_x")*GLOBALS_D("bird_max_x"))
+		{
+			setHawlState(BIRD_STATE_FOLLOW_PLAYER);
+		}
 		break;
 	}
 	default:
 		break;
 	}
-	*/
-
-	switch (hawlState)
-	{
-	case BIRDWAIT:
-		if (getX() - Player::getInstance()->getX() < 100)
-			setHawlState(BIRDPREPARE);
-		break;
-	case BIRDPREPARE:
-		setVy(Player::getInstance()->getY() - getY() - 80);
-		setVx(Player::getInstance()->getX() - getX() - 80);
-		if (Player::getInstance()->getY() - getY() > 10 && Player::getInstance()->getY() - getY() > 10)
-		{
-			setAx(80);
-			setAy(10);
-			setVy(-20);
-		}
-
-		if (Player::getInstance()->getX() - getX() > 40)
-		{
-			setVx((Player::getInstance()->getMidX() - getMidX()) * 2);
-			setVy((50 - getMidY()) * 2);
-			setDirection(TEXTURE_DIRECTION_RIGHT);
-			setHawlState(BIRDATTACK1);
-		}
-		break;
-	case BIRDATTACK1:
-		if (getMidX() > Player::getInstance()->getMidX())
-		{
-			setAy(-50);
-			setAx(-150);
-			setHawlState(BIRDSLOW_DOWN_RIGHT);
-		}
-		break;
-	case BIRDSLOW_DOWN_RIGHT:
-		setVx(getVx() + getAx()*dt);
-		setVy(getVy() + getAy()*dt);
-		setDx(getVx()*dt);
-		setDy(getVy()*dt);
-		if (getMidY() >= 55)
-		{
-			setVy(-50);
-			setVx(50);
-			setHawlState(BIRDFLY_DOWN_RIGHT);
-		}
-		break;
-	case BIRDFLY_DOWN_RIGHT:
-		if (getY() < 20) {
-			setVx(-(getMidX() - Player::getInstance()->getMidX()) * 2);
-			setVy((50 - getMidY()) * 2);
-			setHawlState(BIRDATTACK2);
-		}
-		break;
-	case BIRDATTACK2:
-		if (getMidX() < Player::getInstance()->getMidX())
-		{
-			setAy(-50);
-			setAx(150);
-			setHawlState(BIRDSLOW_DOWN_LEFT);
-		}
-		break;
-	case BIRDSLOW_DOWN_LEFT:
-		setVx(getVx() + getAx()*dt);
-		setVy(getVy() + getAy()*dt);
-		setDx(getVx()*dt);
-		setDy(getVy()*dt);
-		if (getMidY() >= 55)
-		{
-			setVy(-50);
-			setVx(-50);
-			setHawlState(BIRDFLY_DOWN_LEFT);
-		}
-		break;
-	case BIRDFLY_DOWN_LEFT:
-		if (getY() < 20) {
-			setVx((Player::getInstance()->getMidX() - getMidX()) * 2);
-			setVy((50 - getMidY()) * 2);
-			setHawlState(BIRDATTACK1);
-		}
-		break;
-	}
-	//PhysicsObject::onUpdate(dt);
 }
 
 

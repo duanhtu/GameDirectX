@@ -31,6 +31,10 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_distance_to_activ", 150));
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_vx", 60));
+
+		globalsConfigurationDouble->insert(pair<const char*, double>("bird_r", 2));
+		globalsConfigurationDouble->insert(pair<const char*, double>("bird_min_x", 10));
+		globalsConfigurationDouble->insert(pair<const char*, double>("bird_max_x", 50));
 	}
 	return globalsConfigurationDouble->at(key);
 }
