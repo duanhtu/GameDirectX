@@ -1,10 +1,16 @@
 #include "Death.h"
 #include"Player.h"
+#include "DeathWeapon.h"
 
 Death::Death()
 {
-	setDeathState(DEATH_STATE_INVISIBLE);
+	setDeathState(DEATH_STATE_RUN);
 	setDirection(TEXTURE_DIRECTION_LEFT);
+	setRenderActive(true);
+	runDelay.init(GLOBALS_D("death_time_run"));
+	fireDelay.init(GLOBALS_D("death_time_fire"));
+	runDelay.start();
+	vDirection = -1;
 }
 
 void Death::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
@@ -15,40 +21,46 @@ void Death::onCollision(MovableRect * other, float collisionTime, int nx, int ny
 
 void Death::onUpdate(float dt)
 {
+	runDelay.update();
+	fireDelay.update();
 	switch (deathState)
 	{
-	case DEATH_STATE_INVISIBLE:
-		setRenderActive(false);
-		setVx(0);
-		setDx(0);
-		if (getMidX() - Player::getInstance()->getMidX() <= GLOBALS_D("death_distance_to_activ"))
+	case DEATH_STATE_RUN:
+		if (getDx() < 0 && ((getMidX() - getInitBox()->getMidX()) < -10))
 		{
-			setDeathState(DEATH_STATE_VISIBLE);
-			setRenderActive(true);
+			vDirection = 1;
+		}
+
+		if (getDx() > 0 && ((getMidX() - getInitBox()->getMidX()) > 10))
+		{
+			vDirection = -1;
+		}
+
+		if (runDelay.isTerminated())
+		{
+			DeathWeapon* weapon = new DeathWeapon();
+			weapon->setVx(getDirection()* GLOBALS_D("death_weapon_vx"));
+			weapon->setVy(GLOBALS_D("death_weapon_vy"));
+			weapon->setX(getX() - 16);
+			weapon->setY(getY());
+			weapon->setRenderActive(true);
+			setDeathState(DEATH_STATE_FIRE);
+			fireDelay.start();
+		}
+		setVx(GLOBALS_D("death_vx") * vDirection);
+		break;
+	case DEATH_STATE_FIRE:
+		setVx(0);
+		if (fireDelay.isTerminated())
+		{
+			setDeathState(DEATH_STATE_RUN);
+			runDelay.start();
 		}
 		break;
-	case DEATH_STATE_VISIBLE:
-		int end = getInitBox()->getX() + 32 ;
-		int begin = getInitBox()->getX() - 32;
-		if (getX() <= begin)
-		{
-			//setDirection(TEXTURE_DIRECTION_RIGHT);
-			setVx(GLOBALS_D("death_vx") * 1);
-		}
-		if (getX() >= end)
-		{
-			//setDirection(TEXTURE_DIRECTION_LEFT);
-			setVx(GLOBALS_D("death_vx")*-1);
-		}
-		setAnimation(DEATH_ACTION_WALK);
+	default:
 		break;
 	}
 	PhysicsObject::onUpdate(dt);
-}
-
-void Death::onInit(ifstream& fs)
-{
-	fs >> Death::distanceChangeDirection;
 }
 
 void Death::setDeathState(DEATH_STATE deathState)

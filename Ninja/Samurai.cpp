@@ -4,7 +4,9 @@
 Samurai::Samurai()
 {
 	setSamuraiState(SAMURAI_STATE_INVISIBLE);
-	//setDirection(TEXTURE_DIRECTION_LEFT);
+	setDirection(TEXTURE_DIRECTION_LEFT);
+	hasChangedDirectionRight = false;
+	hasChangedDirectionLeft = false;
 }
 
 void Samurai::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
@@ -32,16 +34,21 @@ void Samurai::onUpdate(float dt)
 		{
 			int end = getInitBox()->getX() - 16;
 			int begin = getInitBox()->getX() - Samurai::distanceChangeDirection ;
-			if (getX() <= begin)
+			if (getX() <= begin && !hasChangedDirectionRight)
 			{
 				setDirection(TEXTURE_DIRECTION_RIGHT);
-				setVx(GLOBALS_D("samurai_vx")*getDirection());
+				setX(begin - 32);
+				hasChangedDirectionRight = true;
+				hasChangedDirectionLeft = false;
 			}
-			if (getX() >= end)
+			if (getX() >= end && !hasChangedDirectionLeft)
 			{
 				setDirection(TEXTURE_DIRECTION_LEFT);
-				setVx(GLOBALS_D("samurai_vx")*getDirection());
+				setX(end + 32);
+				hasChangedDirectionLeft = true;
+				hasChangedDirectionRight = false;
 			}
+			setVx(GLOBALS_D("samurai_vx")*getDirection());
 			setAnimation(SAMURAI_ACTION_WALK);
 		}
 		else

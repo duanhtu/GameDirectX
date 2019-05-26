@@ -20,6 +20,8 @@ class Samurai :
 	SAMURAI_STATE samuraiState;
 	boolean isOnBridge ;
 	int distanceChangeDirection;
+	boolean hasChangedDirectionRight;
+	boolean hasChangedDirectionLeft ;
 public:
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny)override;
 	void onUpdate(float dt) override;

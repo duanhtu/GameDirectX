@@ -2,10 +2,12 @@
 
 
 #include "PhysicsObject.h"
+#include"DelayTime.h"
+
 enum DEATH_STATE
 {
-	DEATH_STATE_INVISIBLE,
-	DEATH_STATE_VISIBLE
+	DEATH_STATE_RUN,
+	DEATH_STATE_FIRE
 };
 
 enum DEATH_ACTION
@@ -19,11 +21,14 @@ class Death :
 	DEATH_STATE deathState;
 	boolean isOnBridge;
 	int distanceChangeDirection;
+	DelayTime runDelay;
+	DelayTime fireDelay;
+	int vDirection ;
+	int worldHeight;
 public:
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny)override;
 	void onUpdate(float dt) override;
 	void setDeathState(DEATH_STATE deathState);
-	void onInit(ifstream& fs) override;
 	Death();
 	~Death();
 };

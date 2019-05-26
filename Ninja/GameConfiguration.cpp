@@ -28,6 +28,10 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("death_distance_to_activ", 200));
 		globalsConfigurationDouble->insert(pair<const char*, double>("death_vx", 40));
+		globalsConfigurationDouble->insert(pair<const char*, double>("death_weapon_vx", 40));
+		globalsConfigurationDouble->insert(pair<const char*, double>("death_weapon_vy", 130));
+		globalsConfigurationDouble->insert(pair<const char*, double>("death_time_run", 2000));
+		globalsConfigurationDouble->insert(pair<const char*, double>("death_time_fire", 1000));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_distance_to_activ", 150));
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_vx", 60));
@@ -35,6 +39,7 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("bird_r", 2));
 		globalsConfigurationDouble->insert(pair<const char*, double>("bird_min_x", 10));
 		globalsConfigurationDouble->insert(pair<const char*, double>("bird_max_x", 50));
+		globalsConfigurationDouble->insert(pair<const char*, double>("bird_active_length", 200));
 	}
 	return globalsConfigurationDouble->at(key);
 }

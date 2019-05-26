@@ -95,6 +95,8 @@
     <ClCompile Include="Cheetah.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Death.cpp" />
+    <ClCompile Include="DeathWeapon.cpp" />
+    <ClCompile Include="DelayTime.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameConfiguration.cpp" />
     <ClCompile Include="GameDirectX.cpp" />
@@ -103,7 +105,7 @@
     <ClCompile Include="GameUtils.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="GridRect.cpp" />
-    <ClCompile Include="Hawl.cpp" />
+    <ClCompile Include="Hawk.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="MovableRect.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
@@ -114,6 +116,7 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Tilemap.cpp" />
+    <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="WindowGame.cpp" />
     <ClCompile Include="Winmain.cpp" />
     <ClCompile Include="World.cpp" />
@@ -128,6 +131,8 @@
     <ClInclude Include="CollisionType.h" />
     <ClInclude Include="CollisionTypeCollide.h" />
     <ClInclude Include="Death.h" />
+    <ClInclude Include="DeathWeapon.h" />
+    <ClInclude Include="DelayTime.h" />
     <ClInclude Include="FrameAnimation.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameConfiguration.h" />
@@ -137,7 +142,7 @@
     <ClInclude Include="GameUtils.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="GridRect.h" />
-    <ClInclude Include="Hawl.h" />
+    <ClInclude Include="Hawk.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MovableRect.h" />
@@ -149,6 +154,7 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="Tilemap.h" />
+    <ClInclude Include="Weapon.h" />
     <ClInclude Include="WindowGame.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>

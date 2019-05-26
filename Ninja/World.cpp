@@ -5,11 +5,12 @@
 #include"KEY.h"
 #include "Collision.h"
 #include"Cheetah.h"
-#include"Hawl.h"
+#include"Hawk.h"
 #include"Butterfly.h"
 #include"Death.h"
 #include"Solicol.h"
 #include "GridRect.h"
+#include "Weapon.h"
 
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath,const char * collisionTypeCollidePath, const char* gridPath)
 {
@@ -38,8 +39,8 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 			obj = new Cheetah();
 			break;
 
-		case SPRITE_INFO_HAWL:
-			obj = new Hawl(worldHeight);
+		case SPRITE_INFO_HAWK:
+			obj = new Hawk();
 			break;
 
 		case SPRITE_INFO_BUTTERFLY:
@@ -112,6 +113,14 @@ void World::update(float dt)
 		Collision::CheckCollision(Player::getInstance(), collisionObjects[i]);
 	}
 
+	Weapon::updateCurrentWeapons();
+	auto allCurrentWeapons = Weapon::getAllCurrentWeapons();
+	for (int ir = 0; ir < allCurrentWeapons->Count; ir++)
+	{
+		auto weapon = allCurrentWeapons->at(ir);
+		weapon->update(dt);
+	}
+
 	for (size_t i = 0; i < collisionTypeCollides.size(); i++)
 	{
 		COLLISION_TYPE col1 = collisionTypeCollides.at(i)->COLLISION_TYPE_1;
@@ -128,6 +137,7 @@ void World::update(float dt)
 		}
 
 	}
+
 	Player::getInstance()->update(dt);
 	Camera::getInstance()->update();
 }
@@ -136,10 +146,19 @@ void World::update(float dt)
 void World::render()
 {
 	tilemap.render(Camera::getInstance());
+
+	auto allCurrentWeapons = Weapon::getAllCurrentWeapons();
+	for (int ir = 0; ir < allCurrentWeapons->Count; ir++)
+	{
+		auto weapon = allCurrentWeapons->at(ir);
+		weapon->render(Camera::getInstance());
+	}
+
 	for (size_t i = 0; i < allObjects.Count; i++)
 	{
 		allObjects[i]->render(Camera::getInstance());
 	}
+
 	Player::getInstance()->render(Camera::getInstance());
 }
 

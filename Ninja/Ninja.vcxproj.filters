@@ -70,9 +70,6 @@
     <ClCompile Include="Cheetah.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hawl.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Butterfly.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -86,6 +83,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Grid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hawk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DelayTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DeathWeapon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -168,9 +177,6 @@
     <ClInclude Include="Cheetah.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hawl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Butterfly.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -184,6 +190,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Grid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hawk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DelayTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DeathWeapon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

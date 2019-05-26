@@ -1,29 +1,27 @@
-#include "Hawl.h"
+#include "Hawk.h"
 #include"Collision.h"
 #include "Player.h"
 #include "Tilemap.h"
 
-bool Hawl::isActivity = false;
-
-void Hawl::setHawlState(HAWL_STATE hawlState)
+void Hawk::setHawkState(HAWK_STATE hawkState)
 {
-	this->hawlState = hawlState;
+	this->hawkState = hawkState;
 }
 
-void Hawl::onUpdate(float dt)
+void Hawk::onUpdate(float dt)
 {
 	auto ryu = Player::getInstance();
-	switch (hawlState)
+	switch (hawkState)
 	{
-	case BIRD_STATE_INVISIBLE:
+	case HAWK_STATE_INVISIBLE:
 		setRenderActive(false);
 		if (Collision::AABBCheck(Camera::getInstance(), this))
 		{
-			setHawlState(BIRD_STATE_FOLLOW_PLAYER);
+			setHawkState(HAWK_STATE_FOLLOW_PLAYER);
 			setRenderActive(true);
 		}
 		break;
-	case BIRD_STATE_FOLLOW_PLAYER:
+	case HAWK_STATE_FOLLOW_PLAYER:
 	{
 		auto r = GLOBALS_D("bird_r");
 
@@ -34,7 +32,7 @@ void Hawl::onUpdate(float dt)
 
 		if (abs(deltax) < GLOBALS_D("bird_min_x") || abs(deltay) < GLOBALS_D("bird_min_x"))
 		{
-			setHawlState(BIRD_STATE_RUN_UNTIL_RETURN);
+			setHawkState(HAWK_STATE_RUN_UNTIL_RETURN);
 		}
 
 		dy = r * sqrt((deltay*deltay) / (deltax*deltax + deltay * deltay));
@@ -57,17 +55,29 @@ void Hawl::onUpdate(float dt)
 		setDx(dx);
 		setDy(dy);
 
+		limitLeft = getInitBox()->getX() - GLOBALS_D("bird_active_length");
+		limitRight = getInitBox()->getX() + GLOBALS_D("bird_active_length");
+		if (x < limitLeft || x > limitRight)
+		{
+			setHawkState(HAWK_STATE_STOP_FOLLOW);
+		}
 		break;
 	}
-	case BIRD_STATE_RUN_UNTIL_RETURN:
+	case HAWK_STATE_RUN_UNTIL_RETURN:
 	{
 		auto x = getX(), y = getY(), xr = ryu->getX(), yr = ryu->getY();
 		auto deltax = x - xr, deltay = y - yr;
 		if (deltax*deltax + deltay * deltay  > GLOBALS_D("bird_max_x")*GLOBALS_D("bird_max_x"))
 		{
-			setHawlState(BIRD_STATE_FOLLOW_PLAYER);
+			setHawkState(HAWK_STATE_FOLLOW_PLAYER);
 		}
 		break;
+	}
+	case HAWK_STATE_STOP_FOLLOW:
+	{
+		auto x = getX();
+		setDx(0);
+		setDy(0);
 	}
 	default:
 		break;
@@ -75,16 +85,12 @@ void Hawl::onUpdate(float dt)
 }
 
 
-Hawl::Hawl(int worldHeight)
+Hawk::Hawk()
 {
-	float y = (float)worldHeight - getY();
-	discoverSpace.set(getX(), getY(), getWidth(), worldHeight);
-	discoverDirection = TEXTURE_DIRECTION_LEFT;
 	setDirection(TEXTURE_DIRECTION_LEFT);
-	//setHawlState(HAWL_STATE_VISIBLE);
 	setRenderActive(true);
 }
 
-Hawl::~Hawl()
+Hawk::~Hawk()
 {
 }
