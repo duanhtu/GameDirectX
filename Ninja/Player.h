@@ -1,7 +1,8 @@
-﻿#pragma once
-#include "PhysicsObject.h"
+﻿#include "PhysicsObject.h"
 #include"SpriteManager.h"
 #include"KEY.h"
+#include "Delay.h"
+
 enum PLAYER_ACTION
 {
 	PLAYER_ACTION_STAND,
@@ -19,10 +20,16 @@ class Player :
 	static Player* instance;
 	bool isOnAttack;
 	bool isOnAttackSuriken;
+	Delay invisibleDelay;
+	GameTime invisibleTime;
+	GameTime blinkTime;
+	Delay blinkDelay;
+	bool isHit;
 public:
 	static Player* getInstance();
 	void onUpdate(float dt) override;
 	virtual void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
+	void onIntersect(MovableRect* other) override;
 	void setIsOnAttack(bool isOnAttack);
 	void setIsOnAttackSuriken(bool isOnAttack);
 	Player();

@@ -1,5 +1,6 @@
 ﻿#include "Player.h"
 #include "PhysicsObject.h"
+#include "ScoreBoard.h"
 
 
 Player * Player::instance = 0;
@@ -14,6 +15,45 @@ Player * Player::getInstance()
 
 void Player::onUpdate(float dt)
 {
+	if (this->getTop() < Camera::getInstance()->getBottom())
+	{
+		ScoreBoard* scoreBoard = ScoreBoard::getInstance();
+		scoreBoard->restoreHealth();
+		scoreBoard->increasePlayerLife(-1);
+		restoreLocation();
+		Camera::getInstance()->setX(0);
+		Camera::getInstance()->setY(200);
+		return;
+	}
+
+	blinkDelay.update();
+	if (blinkDelay.isOnTime())
+	{
+		if (invisibleTime.atTime())
+		{
+			setRenderActive(true);
+		}
+		else
+		{
+			setRenderActive(false);
+		}
+	}
+	if (blinkDelay.isTerminated())
+	{
+		setRenderActive(true);
+	}
+	if (isHit)
+	{
+		if (getIsOnGround())
+		{
+			isHit = false;
+		}
+		else
+		{
+			return;
+		}
+	}
+
 	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown, keyJumpPress, keyAttackPress, keyAttackSurikenDown;
 	keyLeftDown = KEY::getInstance()->isLeftDown;
 	keyRightDown = KEY::getInstance()->isRightDown;
@@ -66,7 +106,6 @@ void Player::onUpdate(float dt)
 		else
 		{
 			bool isMoveDown = keyLeftDown || keyRightDown;
-
 			if (isMoveDown)
 			{
 				setVx(getDirection()* vx);
@@ -125,6 +164,18 @@ void Player::onCollision(MovableRect * other, float collisionTime, int nx, int n
 	}
 }
 
+void Player::onIntersect(MovableRect* other)
+{
+	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !blinkDelay.isOnTime() && ((BaseObject*)other)->getRenderActive())
+	{
+		blinkDelay.start();
+		isHit = true;
+		setVy(GLOBALS_D("player_hit_vy"));
+		setVx(-getDirection() * GLOBALS_D("player_hit_vx"));
+		ScoreBoard::getInstance()->setHealth(ScoreBoard::getInstance()->getHealth() - 1);
+	}
+}
+
 void Player::setIsOnAttack(bool isOnAttack)
 {
 	this->isOnAttack = isOnAttack;
@@ -136,6 +187,11 @@ Player::Player()
 	setIsOnAttack(false);
 	setIsOnAttackSuriken(false);
 	setRenderActive(true);
+	blinkTime.setDeltaTime(GLOBALS_D("player_blink_time"));
+	blinkDelay.init(GLOBALS_D("player_blink_delay"));
+	invisibleDelay.init(GLOBALS_D("player_invisible_delay"));
+	invisibleTime.init(GLOBALS_D("player_invisible_time"));
+	isHit = false;
 }
 
 void Player::setIsOnAttackSuriken(bool isOnAttack)
