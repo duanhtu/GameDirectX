@@ -88,13 +88,16 @@
     <ClCompile Include="Hawk.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DelayTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DeathWeapon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Weapon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Delay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -118,9 +121,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameConfiguration.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameUtils.h">
@@ -195,13 +195,19 @@
     <ClInclude Include="Hawk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DelayTime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DeathWeapon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Weapon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreBoard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Delay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

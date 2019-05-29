@@ -27,6 +27,8 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_DEATH]->InitFromFile("assets/sprites/enemy/death/image.png","assets/sprites/enemy/death/death.info.dat");
 	sprites[SPRITE_INFO_SOLICOL]->InitFromFile("assets/sprites/enemy/solicol/image.png","assets/sprites/enemy/solicol/solidercol.info.dat");
 	sprites[SPRITE_INFO_DEATH_WEAPON]->InitFromFile("assets/sprites/weapon/death_weapon/image.png", "assets/sprites/weapon/death_weapon/death_weapon.info.dat");
+	sprites[SPRITE_MISC]->InitFromFile("assets/sprites/misc/misc.png", "assets/sprites/misc/misc.info.txt");
+	sprites[SPRITE_MISC]->image->direction = TEXTURE_DIRECTION_RIGHT;
 }
 SpriteManager::~SpriteManager()
 {

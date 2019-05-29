@@ -1,7 +1,7 @@
-#include "DelayTime.h"
+#include "Delay.h"
 
 
-void DelayTime::start(DWORD time)
+void Delay::start(DWORD time)
 {
 	ready = false;
 	terminated = false;
@@ -12,18 +12,18 @@ void DelayTime::start(DWORD time)
 	}
 }
 
-void DelayTime::init(DWORD time)
+void Delay::init(DWORD time)
 {
 	tickPerFrame = time;
 }
 
-DelayTime::DelayTime()
+Delay::Delay()
 {
 	ready = true;
 	terminated = false;
 }
 
-bool DelayTime::isTerminated()
+bool Delay::isTerminated()
 {
 	if (terminated)
 	{
@@ -33,15 +33,15 @@ bool DelayTime::isTerminated()
 	}
 	return false;
 }
-void DelayTime::setIsTerminated(bool isTerminated)
+void Delay::setIsTerminated(bool isTerminated)
 {
 	terminated = isTerminated;
 }
-bool DelayTime::isOnTime()
+bool Delay::isOnTime()
 {
 	return !terminated && !ready;
 }
-void DelayTime::update()
+void Delay::update()
 {
 	if (isOnTime())
 	{
@@ -55,6 +55,6 @@ void DelayTime::update()
 
 }
 
-DelayTime::~DelayTime()
+Delay::~Delay()
 {
 }

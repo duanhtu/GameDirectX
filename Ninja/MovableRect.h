@@ -17,6 +17,7 @@ public :
 	void goX();
 	void goY();
 	virtual void onCollision(MovableRect* other, float collisionTime, int nx, int ny);
+	virtual void onIntersect(MovableRect* other) {}
 	void preventMovementWhenCollision(float collisionTime, int nx, int ny);
 	MovableRect();
 	~MovableRect();

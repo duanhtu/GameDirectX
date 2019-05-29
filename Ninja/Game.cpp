@@ -1,5 +1,5 @@
 ﻿#include "Game.h"
-
+#include "ScoreBoard.h"
 
 Game * Game::instance = 0;
 Game * Game::getInstance()
@@ -22,10 +22,12 @@ void Game::GameInit()
 void Game::GameUpdate(float dt)
 {
 	world->update(dt);
+	ScoreBoard::getInstance()->update();
 }
 void Game::GameRender()
 {
 	world->render();
+	ScoreBoard::getInstance()->render();
 }
 
 Game::Game()

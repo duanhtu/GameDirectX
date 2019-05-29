@@ -15,6 +15,9 @@
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath,const char * collisionTypeCollidePath, const char* gridPath)
 {
 	Player::getInstance()->set(64, 100, 16, 32);
+	Rect* playerInitBox = new Rect();
+	playerInitBox->set(64, 100, 16, 32);
+	Player::getInstance()->setInitBox(playerInitBox);
 
 	tilemap.Init(tilesheetPath, matrixPath);
 

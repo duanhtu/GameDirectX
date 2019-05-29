@@ -18,14 +18,14 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccLocalPath>SAK</SccLocalPath>
     <SccProvider>SAK</SccProvider>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
     <ProjectName>Ninja</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -96,7 +96,7 @@
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Death.cpp" />
     <ClCompile Include="DeathWeapon.cpp" />
-    <ClCompile Include="DelayTime.cpp" />
+    <ClCompile Include="Delay.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameConfiguration.cpp" />
     <ClCompile Include="GameDirectX.cpp" />
@@ -112,6 +112,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Samurai.cpp" />
+    <ClCompile Include="ScoreBoard.cpp" />
     <ClCompile Include="Solicol.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
@@ -132,7 +133,7 @@
     <ClInclude Include="CollisionTypeCollide.h" />
     <ClInclude Include="Death.h" />
     <ClInclude Include="DeathWeapon.h" />
-    <ClInclude Include="DelayTime.h" />
+    <ClInclude Include="Delay.h" />
     <ClInclude Include="FrameAnimation.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameConfiguration.h" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Samurai.h" />
+    <ClInclude Include="ScoreBoard.h" />
     <ClInclude Include="Solicol.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />

@@ -38,6 +38,7 @@ public:
 	bool getRenderActive();
 	Rect* getInitBox();
 	void setInitBox(Rect* initBox);
+	virtual void restoreLocation();
 	BaseObject();
 	~BaseObject();
 };

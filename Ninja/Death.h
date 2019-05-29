@@ -2,7 +2,7 @@
 
 
 #include "PhysicsObject.h"
-#include"DelayTime.h"
+#include"Delay.h"
 
 enum DEATH_STATE
 {
@@ -21,8 +21,8 @@ class Death :
 	DEATH_STATE deathState;
 	boolean isOnBridge;
 	int distanceChangeDirection;
-	DelayTime runDelay;
-	DelayTime fireDelay;
+	Delay runDelay;
+	Delay fireDelay;
 	int vDirection ;
 	int worldHeight;
 public:

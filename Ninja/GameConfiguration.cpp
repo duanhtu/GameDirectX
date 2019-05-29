@@ -18,7 +18,11 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("object_default_ay", -180));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 60)); 
-		globalsConfigurationDouble->insert(pair<const char*, double>("player_vy_jump", 130)); 
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_vy_jump", 130));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_time", 10));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_delay", 2000));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_invisible_delay", 1000));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_invisible_time", 30));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_distance_to_activ", 150));
 		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_vx", 60));
