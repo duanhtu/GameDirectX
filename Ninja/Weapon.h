@@ -1,3 +1,4 @@
+#pragma once
 #include"PhysicsObject.h"
 #include"List.h"
 
@@ -9,6 +10,7 @@ class Weapon :
 public:
 	static List<Weapon*>* getAllCurrentWeapons();
 	static void updateCurrentWeapons();
+	void Weapon::remove();
 	Weapon();
 	~Weapon();
 };

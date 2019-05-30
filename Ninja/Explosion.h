@@ -1,12 +1,11 @@
+#pragma once
 #include "Weapon.h"
 
-class DeathWeapon :
+class Explosion:
 	public Weapon
 {
 public:
-	DeathWeapon();
-	~DeathWeapon();
+	Explosion();
 	void onUpdate(float dt) override;
-	void render(Camera* camera);
+	void render(Camera* camera) override;
 };
-

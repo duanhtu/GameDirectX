@@ -1,5 +1,6 @@
 ﻿#include "BaseObject.h"
 
+
 void BaseObject::setSprite(Sprite * sprite)
 {
 	this->sprite = sprite;
@@ -50,11 +51,13 @@ void BaseObject::onInit(ifstream& fs)
 
 void BaseObject::update(float dt)
 {
+	if (!getIsAlive())
+	{
+		return;
+	}
 	goX();
 	goY();
-
 	setIsLastFrameAnimationDone(false);
-
 	if (!pauseAnimation && getSprite() != NULL)
 	{
 		if (animationGameTime.atTime())
@@ -66,7 +69,6 @@ void BaseObject::update(float dt)
 			}
 		}
 	}
-
 	onUpdate(dt);
 }
 
@@ -77,6 +79,10 @@ void BaseObject::onUpdate(float dt)
 
 void BaseObject::render(Camera* camera)
 {
+	if (!getIsAlive())
+	{
+		return;
+	}
 	if (getSprite() == 0)
 		return;
 	if (!getRenderActive())
@@ -110,6 +116,7 @@ BaseObject::BaseObject()
 {
 	setSprite(NULL);
 	animationGameTime.init(GLOBALS_D("object_animation_time_default"));
+	setIsAlive(true);
 }
 
 

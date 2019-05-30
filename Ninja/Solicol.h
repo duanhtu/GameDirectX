@@ -1,5 +1,5 @@
 #pragma once
-#include "PhysicsObject.h"
+#include "Enemy.h"
 enum SOLICOL_STATE
 {
 	SOLICOL_STATE_INVISIBLE,
@@ -12,9 +12,10 @@ enum SOLICOL_ACTION
 };
 
 class Solicol :
-	public PhysicsObject
+	public Enemy
 {
 	SOLICOL_STATE solicolState;
+	GameTime fireTime;
 public:
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny)override;
 	void onUpdate(float dt) override;

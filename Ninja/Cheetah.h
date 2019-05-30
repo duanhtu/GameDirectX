@@ -1,5 +1,5 @@
 #pragma once
-#include "PhysicsObject.h"
+#include "Enemy.h"
 
 enum CHEETAH_STATE
 {
@@ -12,7 +12,7 @@ enum CHEETAH_ACTION
 	CHEETAH_ACTION_RUN
 };
 
-class Cheetah : public PhysicsObject
+class Cheetah : public Enemy
 {
 	CHEETAH_STATE cheetahState;
 public:

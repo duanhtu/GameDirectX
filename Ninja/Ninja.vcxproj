@@ -97,6 +97,8 @@
     <ClCompile Include="Death.cpp" />
     <ClCompile Include="DeathWeapon.cpp" />
     <ClCompile Include="Delay.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameConfiguration.cpp" />
     <ClCompile Include="GameDirectX.cpp" />
@@ -110,10 +112,12 @@
     <ClCompile Include="MovableRect.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerSword.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Samurai.cpp" />
     <ClCompile Include="ScoreBoard.cpp" />
     <ClCompile Include="Solicol.cpp" />
+    <ClCompile Include="SolicolBullet.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Tilemap.cpp" />
@@ -134,6 +138,8 @@
     <ClInclude Include="Death.h" />
     <ClInclude Include="DeathWeapon.h" />
     <ClInclude Include="Delay.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Explosion.h" />
     <ClInclude Include="FrameAnimation.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameConfiguration.h" />
@@ -149,10 +155,12 @@
     <ClInclude Include="MovableRect.h" />
     <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerSword.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Samurai.h" />
     <ClInclude Include="ScoreBoard.h" />
     <ClInclude Include="Solicol.h" />
+    <ClInclude Include="SolicolBullet.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="Tilemap.h" />

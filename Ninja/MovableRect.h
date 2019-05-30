@@ -7,6 +7,7 @@ class MovableRect :
 {
 	float dx, dy;
 	COLLISION_TYPE collisionType;
+	bool isAlive;
 public :
 	COLLISION_TYPE getCollisionType();
 	void setCollisionType(COLLISION_TYPE collisionType);
@@ -19,6 +20,8 @@ public :
 	virtual void onCollision(MovableRect* other, float collisionTime, int nx, int ny);
 	virtual void onIntersect(MovableRect* other) {}
 	void preventMovementWhenCollision(float collisionTime, int nx, int ny);
+	bool getIsAlive();
+	void setIsAlive(bool isAlive);
 	MovableRect();
 	~MovableRect();
 };

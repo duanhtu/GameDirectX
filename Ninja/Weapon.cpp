@@ -20,6 +20,10 @@ void Weapon::updateCurrentWeapons()
 		auto obj = objs->at(i);
 		if (!Collision::AABBCheck(Camera::getInstance(), obj))
 		{
+			obj->remove();
+		}
+		if (obj->removed)
+		{
 			getAllCurrentWeapons()->_Remove(obj);
 			delete obj;
 			i--;
@@ -27,6 +31,10 @@ void Weapon::updateCurrentWeapons()
 	}
 }
 
+void Weapon::remove()
+{
+	removed = true;
+}
 
 Weapon::Weapon()
 {

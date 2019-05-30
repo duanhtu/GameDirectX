@@ -25,6 +25,7 @@ class Player :
 	GameTime blinkTime;
 	Delay blinkDelay;
 	bool isHit;
+	void drawPlayerSword();
 public:
 	static Player* getInstance();
 	void onUpdate(float dt) override;

@@ -118,10 +118,17 @@ void World::update(float dt)
 
 	Weapon::updateCurrentWeapons();
 	auto allCurrentWeapons = Weapon::getAllCurrentWeapons();
+	List<BaseObject*>* enemies = grid.getObjectCategories().at(COLLISION_TYPE_ENEMY);
 	for (int ir = 0; ir < allCurrentWeapons->Count; ir++)
 	{
 		auto weapon = allCurrentWeapons->at(ir);
 		weapon->update(dt);
+		Collision::CheckCollision(Player::getInstance(), weapon);
+		for (int ie = 0; ie < enemies->Count; ie++)
+		{
+			auto enemy = enemies->at(ie);
+			Collision::CheckCollision(weapon, enemy);
+		}
 	}
 
 	for (size_t i = 0; i < collisionTypeCollides.size(); i++)

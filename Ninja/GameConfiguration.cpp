@@ -23,8 +23,8 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_delay", 2000));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_invisible_delay", 1000));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_invisible_time", 30));
-		globalsConfigurationDouble->insert(pair<const char*, double>("player_hit_vx", 50));
-		globalsConfigurationDouble->insert(pair<const char*, double>("player_hit_vy", 100));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_hit_vx", 30));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_hit_vy", 80));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_distance_to_activ", 150));
 		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_vx", 60));
@@ -41,6 +41,8 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_distance_to_activ", 150));
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_vx", 60));
+		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_fire_time", 200));
+		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_bullet_vx", 200));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("bird_r", 2));
 		globalsConfigurationDouble->insert(pair<const char*, double>("bird_min_x", 10));

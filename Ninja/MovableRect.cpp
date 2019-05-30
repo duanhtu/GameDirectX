@@ -59,3 +59,13 @@ MovableRect::~MovableRect()
 {
 }
 
+bool MovableRect::getIsAlive()
+{
+	return isAlive;
+}
+
+void MovableRect::setIsAlive(bool isAlive)
+{
+	this->isAlive = isAlive;
+}
+

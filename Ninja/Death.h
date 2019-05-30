@@ -1,7 +1,5 @@
 #pragma once
-
-
-#include "PhysicsObject.h"
+#include "Enemy.h"
 #include"Delay.h"
 
 enum DEATH_STATE
@@ -16,7 +14,7 @@ enum DEATH_ACTION
 };
 
 class Death :
-	public PhysicsObject
+	public Enemy
 {
 	DEATH_STATE deathState;
 	boolean isOnBridge;

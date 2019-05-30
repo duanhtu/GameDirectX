@@ -1,6 +1,5 @@
 #pragma once
-#pragma once
-#include "PhysicsObject.h"
+#include "Enemy.h"
 
 enum HAWK_STATE
 {
@@ -15,7 +14,7 @@ enum HAWK_ACTION
 	Hawk_ACTION_FLY
 };
 
-class Hawk : public PhysicsObject
+class Hawk : public Enemy
 {
 	HAWK_STATE hawkState;
 	int limitLeft;

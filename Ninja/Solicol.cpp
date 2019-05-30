@@ -1,10 +1,12 @@
 #include "Solicol.h"
 #include"Player.h"
+#include "SolicolBullet.h"
 
 Solicol::Solicol()
 {
 	setSolicolState(SOLICOL_STATE_INVISIBLE);
 	setDirection(TEXTURE_DIRECTION_LEFT);
+	fireTime.init(GLOBALS_D("solicol_fire_time"));
 }
 
 void Solicol::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
@@ -30,6 +32,14 @@ void Solicol::onUpdate(float dt)
 	case SOLICOL_STATE_VISIBLE:
 		setAnimation(SOLICOL_ACTION_WALK);
 		setVx(GLOBALS_D("solicol_vx")*getDirection());
+		if (fireTime.atTime())
+		{
+			SolicolBullet* bullet = new SolicolBullet();
+			bullet->setVx(getDirection()* GLOBALS_D("solicol_bullet_vx"));
+			bullet->setX(getX());
+			bullet->setY(getY() - 20);
+			bullet->setRenderActive(true);
+		}
 		break;
 	}
 	PhysicsObject::onUpdate(dt);

@@ -1,6 +1,7 @@
 ﻿#include "Player.h"
 #include "PhysicsObject.h"
 #include "ScoreBoard.h"
+#include "PlayerSword.h"
 
 
 Player * Player::instance = 0;
@@ -44,12 +45,14 @@ void Player::onUpdate(float dt)
 	}
 	if (isHit)
 	{
+		PhysicsObject::onUpdate(dt);
 		if (getIsOnGround())
 		{
 			isHit = false;
 		}
 		else
 		{
+			setAnimation(PLAYER_ACTION::PLAYER_ACTION_JUMP);
 			return;
 		}
 	}
@@ -101,6 +104,7 @@ void Player::onUpdate(float dt)
 			if (isOnAttack)
 			{
 				action = PLAYER_ACTION::PLAYER_ACTION_ATTACK_SIT;
+				drawPlayerSword();
 			}
 		}
 		else
@@ -120,6 +124,7 @@ void Player::onUpdate(float dt)
 			if (isOnAttack)
 			{
 				action = PLAYER_ACTION::PLAYER_ACTION_ATTACK;
+				drawPlayerSword();
 			}
 
 			if (isOnAttackSuriken)
@@ -139,6 +144,7 @@ void Player::onUpdate(float dt)
 		if (isOnAttack)
 		{
 			action = PLAYER_ACTION::PLAYER_ACTION_ATTACK;
+			drawPlayerSword();
 		}
 		if (isOnAttackSuriken)
 		{
@@ -159,14 +165,18 @@ void Player::onCollision(MovableRect * other, float collisionTime, int nx, int n
 {
 	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
 	{
-		preventMovementWhenCollision(collisionTime, nx, ny);
 		PhysicsObject::onCollision(other, collisionTime, nx, ny);
+		preventMovementWhenCollision(collisionTime, nx, ny);
+		if (ny == 1)
+		{
+			isHit = false;
+		}
 	}
 }
 
 void Player::onIntersect(MovableRect* other)
 {
-	if (other->getCollisionType() == COLLISION_TYPE_ENEMY && !blinkDelay.isOnTime() && ((BaseObject*)other)->getRenderActive())
+	if ((other->getCollisionType() == COLLISION_TYPE_ENEMY || other->getCollisionType() == COLLISION_TYPE_WEAPON) && !blinkDelay.isOnTime() && ((BaseObject*)other)->getRenderActive())
 	{
 		blinkDelay.start();
 		isHit = true;
@@ -192,6 +202,7 @@ Player::Player()
 	invisibleDelay.init(GLOBALS_D("player_invisible_delay"));
 	invisibleTime.init(GLOBALS_D("player_invisible_time"));
 	isHit = false;
+	setDirection(TEXTURE_DIRECTION_RIGHT);
 }
 
 void Player::setIsOnAttackSuriken(bool isOnAttack)
@@ -202,4 +213,20 @@ void Player::setIsOnAttackSuriken(bool isOnAttack)
 
 Player::~Player()
 {
+}
+
+void Player::drawPlayerSword()
+{
+	auto sword = new PlayerSword();
+	if (getDirection() == TEXTURE_DIRECTION_RIGHT)
+	{
+		sword->setX(getRight());
+	}
+	else
+	{
+		sword->setX(getleft() - 20);
+	}
+	sword->setY(getTop() + 10);
+	sword->setWidth(30);
+	sword->setHeight(30);
 }

@@ -1,7 +1,7 @@
 ﻿
 #pragma once
+#include "Enemy.h"
 
-#include "PhysicsObject.h"
 enum SAMURAI_STATE
 {
 	SAMURAI_STATE_INVISIBLE,
@@ -15,7 +15,7 @@ enum SAMURAI_ACTION
 };
 
 class Samurai :
-	public PhysicsObject
+	public Enemy
 {
 	SAMURAI_STATE samuraiState;
 	boolean isOnBridge ;

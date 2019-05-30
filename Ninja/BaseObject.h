@@ -10,13 +10,13 @@ class BaseObject :
 {
 	Sprite* sprite;
 	int animationIndex, frameIndex;
-	GameTime animationGameTime;
 	bool pauseAnimation;
 	bool isLastFrameAnimationDone;
 	TEXTTURE_DIRECTION direction;
 	bool renderActive;
 	Rect* initBox;
 public:
+	GameTime animationGameTime;
 	void setSprite(Sprite*sprite);
 	Sprite* getSprite();
 	bool getPauseAnimation();

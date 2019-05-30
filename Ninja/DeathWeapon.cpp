@@ -1,15 +1,12 @@
 #include"SpriteManager.h"
 #include "DeathWeapon.h"
 
-void DeathWeapon::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
-{
-}
-
 DeathWeapon::DeathWeapon()
 {
 	setSprite(SpriteManager::getSprite(SPRITE_INFO_DEATH_WEAPON));
 	setWidth(8);
 	setHeight(15);
+	setCollisionType(COLLISION_TYPE::COLLISION_TYPE_WEAPON);
 }
 
 
