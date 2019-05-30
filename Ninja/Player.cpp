@@ -52,7 +52,7 @@ void Player::onUpdate(float dt)
 		}
 		else
 		{
-			setAnimation(PLAYER_ACTION::PLAYER_ACTION_JUMP);
+			setAnimation(PLAYER_ACTION::PLAYER_ACTION_HURT);
 			return;
 		}
 	}

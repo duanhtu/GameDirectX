@@ -82,6 +82,16 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 
 
 Name
+Ryu_Hurt
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+454			14			21				25				3			0
+
+
+
+Name
 Ryu_Climb
 Frame Count
 2
