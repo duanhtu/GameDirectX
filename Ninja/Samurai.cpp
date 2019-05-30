@@ -23,6 +23,7 @@ void Samurai::onUpdate(float dt)
 		setRenderActive(false);
 		setVx(0);
 		setDx(0);
+		
 		if (getMidX() - Player::getInstance()->getMidX() <= GLOBALS_D("samurai_distance_to_activ"))
 		{
 			setSamuraiState(SAMURAI_STATE_VISIBLE);
@@ -49,14 +50,22 @@ void Samurai::onUpdate(float dt)
 				hasChangedDirectionRight = false;
 			}
 			setVx(GLOBALS_D("samurai_vx")*getDirection());
-			setAnimation(SAMURAI_ACTION_WALK);
+			setAnimation(SAMURAI_ACTION_WALK_ATTACK);
 		}
 		else
 		{
 			setDirection(TEXTURE_DIRECTION_LEFT);
 			setVx(GLOBALS_D("samurai_vx")*getDirection());
-			setAnimation(SAMURAI_ACTION_WALK);
+			if (  getMidX() - Player::getInstance()->getMidX() <= GLOBALS_D("samurai_distance_to_attack") && getMidX() - Player::getInstance()->getMidX() >= 0)
+			{
+				setAnimation(SAMURAI_ACTION_WALK_ATTACK);
+			}
+			else
+			{
+				setAnimation(SAMURAI_ACTION_WALK);
+			}
 		}
+		
 		break;
 	}
 	PhysicsObject::onUpdate(dt);

@@ -27,6 +27,7 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_hit_vy", 80));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_distance_to_activ", 150));
+		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_distance_to_attack",70));
 		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_vx", 60));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("cheetah_distance_to_activ", 200));

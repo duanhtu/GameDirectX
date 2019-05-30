@@ -2,7 +2,7 @@ Sprite samurai
 R	G	B
 0	0	0	0
 Animation Count
-2
+3
 
 
 Name
@@ -23,5 +23,16 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 0			4			27				43				24			0
 27			0			27				47				21			3
 54			3			29				44				16			0
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			4			27				43				24			0
+27			0			27				47				21			3
+
 
 
