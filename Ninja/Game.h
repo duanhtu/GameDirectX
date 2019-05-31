@@ -11,8 +11,9 @@
 class Game
 {
 	static Game* instance;	
-	World* world;
+	World** worlds;
 	Tilemap* tilemap;
+	int currentWorldIndex;
 
 public:
 	static Game* getInstance();
