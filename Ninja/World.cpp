@@ -34,23 +34,18 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 		fs >> id;
 		switch (id)
 		{
-
 		case SPRITE_INFO_SAMURAI:
 			obj = new Samurai();
 			break;
-		
 		case SPRITE_INFO_CHEETAH:
 			obj = new Cheetah();
 			break;
-
 		case SPRITE_INFO_HAWK:
 			obj = new Hawk();
 			break;
-
 		case SPRITE_INFO_BUTTERFLY:
 			obj = new Butterfly();
 			break;
-
 		case SPRITE_INFO_DEATH:
 			obj = new Death();
 			break;

@@ -11,8 +11,11 @@ void Blood::onIntersect(MovableRect* other)
 {
 	if (other == Player::getInstance() && getRenderActive())
 	{
-		ScoreBoard::getInstance()->setHealth(ScoreBoard::getInstance()->getHealth() + 1);
 		setRenderActive(false);
+		if (ScoreBoard::getInstance()->getMaxHealth() != ScoreBoard::getInstance()->getHealth())
+		{
+			ScoreBoard::getInstance()->setHealth(ScoreBoard::getInstance()->getHealth() + 1);
+		}
 	}
 	Item::onIntersect(other);
 }
