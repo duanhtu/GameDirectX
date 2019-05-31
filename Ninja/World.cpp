@@ -11,6 +11,7 @@
 #include"Solicol.h"
 #include "GridRect.h"
 #include "Weapon.h"
+#include "Blood.h"
 
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath,const char * collisionTypeCollidePath, const char* gridPath)
 {
@@ -56,7 +57,9 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 		case SPRITE_INFO_SOLICOL:
 			obj = new Solicol();
 			break;
-
+		case SPRITE_INFO_ITEM_BLOOD:
+			obj = new Blood();
+			break;
 		default:
 			obj = new BaseObject();
 			break;
@@ -119,6 +122,8 @@ void World::update(float dt)
 	Weapon::updateCurrentWeapons();
 	auto allCurrentWeapons = Weapon::getAllCurrentWeapons();
 	List<BaseObject*>* enemies = grid.getObjectCategories().at(COLLISION_TYPE_ENEMY);
+	List<BaseObject*>* miscs = grid.getObjectCategories().at(COLLISION_TYPE_MISC);
+	List<BaseObject*>* items = grid.getObjectCategories().at(COLLISION_TYPE_ITEM);
 	for (int ir = 0; ir < allCurrentWeapons->Count; ir++)
 	{
 		auto weapon = allCurrentWeapons->at(ir);
@@ -128,6 +133,16 @@ void World::update(float dt)
 		{
 			auto enemy = enemies->at(ie);
 			Collision::CheckCollision(weapon, enemy);
+		}
+		for (int im = 0; im < miscs->Count; im++)
+		{
+			auto misc = miscs->at(im);
+			Collision::CheckCollision(weapon, misc);
+		}
+		for (int ii = 0; ii < items->Count; ii++)
+		{
+			auto item = items->at(ii);
+			Collision::CheckCollision(weapon, item);
 		}
 	}
 

@@ -1,5 +1,5 @@
 #include "Butterfly.h"
-
+#include "Explosion.h"
 
 void Butterfly::onUpdate(float dt)
 {
@@ -12,6 +12,16 @@ Butterfly::Butterfly()
 	setRenderActive(true);
 }
 
+void Butterfly::onIntersect(MovableRect* other)
+{
+	if (getRenderActive() && other->getCollisionType() == COLLISION_TYPE_WEAPON)
+	{
+		auto effect = new Explosion();
+		effect->setX(getMidX());
+		effect->setY(getMidY());
+		setRenderActive(false);
+	}
+}
 
 Butterfly::~Butterfly()
 {

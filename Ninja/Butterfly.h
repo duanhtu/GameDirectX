@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "BaseObject.h"
 enum BUTTERFLY_ACTION
 {
@@ -11,6 +10,7 @@ class Butterfly :
 {
 public:
 	void onUpdate(float dt) override;
+	void onIntersect(MovableRect* other) override;
 	Butterfly();
 	~Butterfly();
 };

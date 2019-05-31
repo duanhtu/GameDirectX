@@ -90,6 +90,7 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="BaseObject.cpp" />
+    <ClCompile Include="Blood.cpp" />
     <ClCompile Include="Butterfly.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Cheetah.cpp" />
@@ -108,6 +109,7 @@
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="GridRect.cpp" />
     <ClCompile Include="Hawk.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="MovableRect.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
@@ -150,6 +152,8 @@
     <ClInclude Include="Grid.h" />
     <ClInclude Include="GridRect.h" />
     <ClInclude Include="Hawk.h" />
+    <ClInclude Include="Item.h" />
+    <ClInclude Include="Blood.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MovableRect.h" />

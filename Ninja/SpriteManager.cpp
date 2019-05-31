@@ -32,6 +32,7 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_EXPLOSION]->InitFromFile("assets/sprites/weapon/explosion/image.png", "assets/sprites/weapon/explosion/explosion.info.dat");
 	sprites[SPRITE_EXPLOSION]->image->direction = TEXTURE_DIRECTION_RIGHT;
 	sprites[SPRITE_INFO_SOLICOL_BULLET]->InitFromFile("assets/sprites/weapon/solicol_bullet/image.png", "assets/sprites/weapon/solicol_bullet/solicol_bullet.info.dat");
+	sprites[SPRITE_INFO_ITEM_BLOOD]->InitFromFile("assets/sprites/item/blood/image.png","assets/sprites/item/blood/item_blood.info.dat");
 }
 SpriteManager::~SpriteManager()
 {
