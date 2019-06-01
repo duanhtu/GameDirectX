@@ -119,6 +119,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PlayerShuriken.cpp">
+	<Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Solibaz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bird.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Runner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SolibazBullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -250,6 +262,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PlayerShuriken.h">
+	<Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Solibaz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bird.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Runner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SolibazBullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

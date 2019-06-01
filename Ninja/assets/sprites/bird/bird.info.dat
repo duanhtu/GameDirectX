@@ -1,0 +1,17 @@
+Sprite bird
+R	G	B
+0	255	165	181
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			3			22				26				1			0
+22			0			22				29				2			2
+
+

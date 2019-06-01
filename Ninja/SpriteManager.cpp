@@ -34,6 +34,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_SOLICOL_BULLET]->InitFromFile("assets/sprites/weapon/solicol_bullet/image.png", "assets/sprites/weapon/solicol_bullet/solicol_bullet.info.dat");
 	sprites[SPRITE_INFO_ITEM_BLOOD]->InitFromFile("assets/sprites/item/blood/image.png","assets/sprites/item/blood/item_blood.info.dat");
 	sprites[SPRITE_INFO_PLAYER_SHURIKEN]->InitFromFile("assets/sprites/weapon/ryu_shuriken/image.png", "assets/sprites/weapon/ryu_shuriken/ryu_shuriken.info.dat");
+	sprites[SPRITE_INFO_SOLIBAZ]->InitFromFile("assets/sprites/enemy/solibaz/soliderbaz.png", "assets/sprites/enemy/solibaz/soliderbaz.info.dat");
+	sprites[SPRITE_INFO_BIRD]->InitFromFile("assets/sprites/bird/image.png", "assets/sprites/bird/bird.info.dat");
+	sprites[SPRITE_INFO_RUNNER]->InitFromFile("assets/sprites/enemy/runner/image.png","assets/sprites/enemy/runner/runner.info.dat");
+	sprites[SPRITE_INFO_SOLIBAZ_BULLET]->InitFromFile("assets/sprites/weapon/solibaz_bullet/image.png","assets/sprites/weapon/solibaz_bullet/bazo_bullet.info.dat");
 }
 SpriteManager::~SpriteManager()
 {

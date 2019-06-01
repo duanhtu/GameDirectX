@@ -50,6 +50,14 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("bird_min_x", 10));
 		globalsConfigurationDouble->insert(pair<const char*, double>("bird_max_x", 50));
 		globalsConfigurationDouble->insert(pair<const char*, double>("bird_active_length", 200));
+
+		globalsConfigurationDouble->insert(pair<const char*, double>("solibaz_distance_to_activ", 150));
+		globalsConfigurationDouble->insert(pair<const char*, double>("solibaz_vx", 0));
+		globalsConfigurationDouble->insert(pair<const char*, double>("solibaz_bullet_vx", 200));
+		globalsConfigurationDouble->insert(pair<const char*, double>("solibaz_fire_time", 200));
+
+		globalsConfigurationDouble->insert(pair<const char*, double>("runner_distance_to_activ", 200));
+		globalsConfigurationDouble->insert(pair<const char*, double>("runner_vx", 100));
 	}
 	return globalsConfigurationDouble->at(key);
 }

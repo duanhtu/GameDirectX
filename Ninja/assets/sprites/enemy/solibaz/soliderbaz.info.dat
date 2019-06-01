@@ -1,0 +1,17 @@
+Sprite solibaz1
+R	G	B
+0	0	0	0
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			1			28				29				28			1
+28			0			38				30				35			1
+
+

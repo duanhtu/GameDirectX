@@ -12,6 +12,9 @@
 #include "GridRect.h"
 #include "Weapon.h"
 #include "Blood.h"
+#include "Solibaz.h"
+#include "Bird.h"
+#include "Runner.h"
 
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath,const char * collisionTypeCollidePath, const char* gridPath)
 {
@@ -54,6 +57,15 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 			break;
 		case SPRITE_INFO_ITEM_BLOOD:
 			obj = new Blood();
+			break;
+		case SPRITE_INFO_SOLIBAZ:
+			obj = new Solibaz();
+			break;
+		case SPRITE_INFO_BIRD:
+			obj = new Bird();
+			break;
+		case SPRITE_INFO_RUNNER:
+			obj = new Runner();
 			break;
 		default:
 			obj = new BaseObject();

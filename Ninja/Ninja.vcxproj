@@ -90,6 +90,7 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="BaseObject.cpp" />
+    <ClCompile Include="Bird.cpp" />
     <ClCompile Include="Blood.cpp" />
     <ClCompile Include="Butterfly.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -117,8 +118,11 @@
     <ClCompile Include="PlayerShuriken.cpp" />
     <ClCompile Include="PlayerSword.cpp" />
     <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="Runner.cpp" />
     <ClCompile Include="Samurai.cpp" />
     <ClCompile Include="ScoreBoard.cpp" />
+    <ClCompile Include="Solibaz.cpp" />
+    <ClCompile Include="SolibazBullet.cpp" />
     <ClCompile Include="Solicol.cpp" />
     <ClCompile Include="SolicolBullet.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -132,6 +136,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BaseObject.h" />
+    <ClInclude Include="Bird.h" />
     <ClInclude Include="Butterfly.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Cheetah.h" />
@@ -163,8 +168,11 @@
     <ClInclude Include="PlayerSword.h" />
     <ClInclude Include="PlayerShuriken.h" />
     <ClInclude Include="Rect.h" />
+    <ClInclude Include="Runner.h" />
     <ClInclude Include="Samurai.h" />
     <ClInclude Include="ScoreBoard.h" />
+    <ClInclude Include="Solibaz.h" />
+    <ClInclude Include="SolibazBullet.h" />
     <ClInclude Include="Solicol.h" />
     <ClInclude Include="SolicolBullet.h" />
     <ClInclude Include="Sprite.h" />
