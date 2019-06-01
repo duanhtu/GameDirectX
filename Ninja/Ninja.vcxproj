@@ -114,6 +114,7 @@
     <ClCompile Include="MovableRect.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerShuriken.cpp" />
     <ClCompile Include="PlayerSword.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Samurai.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerSword.h" />
+    <ClInclude Include="PlayerShuriken.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Samurai.h" />
     <ClInclude Include="ScoreBoard.h" />

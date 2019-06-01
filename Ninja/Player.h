@@ -27,6 +27,8 @@ class Player :
 	Delay blinkDelay;
 	bool isHit;
 	void drawPlayerSword();
+	void throwPlayerShuriken();
+	boolean hasThrownShuriken;
 public:
 	static Player* getInstance();
 	void onUpdate(float dt) override;

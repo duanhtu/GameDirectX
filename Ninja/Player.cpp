@@ -2,6 +2,7 @@
 #include "PhysicsObject.h"
 #include "ScoreBoard.h"
 #include "PlayerSword.h"
+#include "PlayerShuriken.h"
 
 
 Player * Player::instance = 0;
@@ -84,6 +85,7 @@ void Player::onUpdate(float dt)
 
 	if (getIsLastFrameAnimationDone() && isOnAttackSuriken) {
 		setIsOnAttackSuriken(false);
+		hasThrownShuriken = false;
 	}
 
 	if (getIsOnGround())
@@ -130,6 +132,11 @@ void Player::onUpdate(float dt)
 			if (isOnAttackSuriken)
 			{
 				action = PLAYER_ACTION::PLAYER_ACTION_ATTACK_SURIKEN;
+				if (!hasThrownShuriken)
+				{
+					throwPlayerShuriken();
+					hasThrownShuriken = true;
+				}
 			}
 
 			if (keyJumpPress)
@@ -149,6 +156,11 @@ void Player::onUpdate(float dt)
 		if (isOnAttackSuriken)
 		{
 			action = PLAYER_ACTION::PLAYER_ACTION_ATTACK_SURIKEN;
+			if (!hasThrownShuriken)
+			{
+				throwPlayerShuriken();
+				hasThrownShuriken = true;
+			}
 		}
 	}
 
@@ -203,6 +215,7 @@ Player::Player()
 	invisibleTime.init(GLOBALS_D("player_invisible_time"));
 	isHit = false;
 	setDirection(TEXTURE_DIRECTION_RIGHT);
+	hasThrownShuriken = false;
 }
 
 void Player::setIsOnAttackSuriken(bool isOnAttack)
@@ -229,4 +242,13 @@ void Player::drawPlayerSword()
 	sword->setY(getTop() + 10);
 	sword->setWidth(30);
 	sword->setHeight(30);
+}
+
+void Player::throwPlayerShuriken()
+{
+	PlayerShuriken* bullet = new PlayerShuriken();
+	bullet->setVx(getDirection()* GLOBALS_D("player_shuriken_vx"));
+	bullet->setX(getX() + 20);
+	bullet->setY(getY());
+	bullet->setRenderActive(true);
 }

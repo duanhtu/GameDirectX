@@ -25,6 +25,7 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_invisible_time", 30));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_hit_vx", 30));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_hit_vy", 80));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_shuriken_vx", 200));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_distance_to_activ", 150));
 		globalsConfigurationDouble->insert(pair<const char*, double>("samurai_distance_to_attack",70));

@@ -33,6 +33,7 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_EXPLOSION]->image->direction = TEXTURE_DIRECTION_RIGHT;
 	sprites[SPRITE_INFO_SOLICOL_BULLET]->InitFromFile("assets/sprites/weapon/solicol_bullet/image.png", "assets/sprites/weapon/solicol_bullet/solicol_bullet.info.dat");
 	sprites[SPRITE_INFO_ITEM_BLOOD]->InitFromFile("assets/sprites/item/blood/image.png","assets/sprites/item/blood/item_blood.info.dat");
+	sprites[SPRITE_INFO_PLAYER_SHURIKEN]->InitFromFile("assets/sprites/weapon/ryu_shuriken/image.png", "assets/sprites/weapon/ryu_shuriken/ryu_shuriken.info.dat");
 }
 SpriteManager::~SpriteManager()
 {
