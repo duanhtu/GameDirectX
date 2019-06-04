@@ -197,6 +197,13 @@ void World::render()
 World::World()
 {
 }
+
 World::~World()
 {
 }
+
+void World::resetCamera(int addition_delta_y) {
+	Camera::getInstance()->setLocation(0, tilemap.getWorldHeight() + addition_delta_y);
+}
+
+

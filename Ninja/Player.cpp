@@ -3,6 +3,8 @@
 #include "ScoreBoard.h"
 #include "PlayerSword.h"
 #include "PlayerShuriken.h"
+#include "Enemy.h"
+#include "Game.h"
 
 
 Player * Player::instance = 0;
@@ -23,8 +25,14 @@ void Player::onUpdate(float dt)
 		scoreBoard->restoreHealth();
 		scoreBoard->increasePlayerLife(-1);
 		restoreLocation();
-		Camera::getInstance()->setX(0);
-		Camera::getInstance()->setY(200);
+		if (Game::getInstance()->getCurrentWorldIndex() == 2)
+		{
+			Game::getInstance()->getCurrentWorld()->resetCamera(40);
+		}
+		else
+		{
+			Game::getInstance()->getCurrentWorld()->resetCamera(10);
+		}
 		return;
 	}
 
@@ -188,7 +196,7 @@ void Player::onCollision(MovableRect * other, float collisionTime, int nx, int n
 
 void Player::onIntersect(MovableRect* other)
 {
-	if ((other->getCollisionType() == COLLISION_TYPE_ENEMY || other->getCollisionType() == COLLISION_TYPE_WEAPON) && !blinkDelay.isOnTime() && ((BaseObject*)other)->getRenderActive())
+	if ((other->getCollisionType() == COLLISION_TYPE_ENEMY || other->getCollisionType() == COLLISION_TYPE_WEAPON) && !blinkDelay.isOnTime() && ((Enemy*)other)->getRenderActive())
 	{
 		blinkDelay.start();
 		isHit = true;

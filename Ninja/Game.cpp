@@ -15,26 +15,38 @@ Game * Game::getInstance()
 
 void Game::GameInit()
 {
-	worlds = new World*[2];
+	Camera::getInstance()->setSize(
+		GLOBALS_D("backbuffer_width"),
+		GLOBALS_D("backbuffer_height"));
+	worlds = new World*[3];
 	worlds[0] = new World();
 	worlds[0]->Init("assets/levels/level1");
 	worlds[1] = new World();
 	worlds[1]->Init("assets/levels/level2");
-	Camera::getInstance()->set(
-		0,
-		200, 
-		GLOBALS_D("backbuffer_width"),
-		GLOBALS_D("backbuffer_height"));
+	worlds[2] = new World();
+	worlds[2]->Init("assets/levels/level3");
 	currentWorldIndex = 0;
+	worlds[currentWorldIndex]->resetCamera(10);
 }
 void Game::GameUpdate(float dt)
 {
-	if (GetAsyncKeyState(getKeyChar('q')))
+	if (GetAsyncKeyState(getKeyChar('a')))
+	{
+		currentWorldIndex = 0;
+		worlds[currentWorldIndex]->resetCamera(10);
+		Player::getInstance()->restoreLocation();
+	}
+	if (GetAsyncKeyState(getKeyChar('s')))
 	{
 		currentWorldIndex = 1;
+		worlds[currentWorldIndex]->resetCamera(10);
 		Player::getInstance()->restoreLocation();
-		Camera::getInstance()->setX(0);
-		Camera::getInstance()->setY(200);
+	}
+	if (GetAsyncKeyState(getKeyChar('d')))
+	{
+		currentWorldIndex = 2;
+		worlds[currentWorldIndex]->resetCamera(40);
+		Player::getInstance()->restoreLocation();
 	}
 	worlds[currentWorldIndex]->update(dt);
 	ScoreBoard::getInstance()->update();
@@ -52,4 +64,14 @@ Game::Game()
 
 Game::~Game()
 {
+}
+
+World* Game::getCurrentWorld()
+{
+	return worlds[currentWorldIndex];
+}
+
+int Game::getCurrentWorldIndex()
+{
+	return currentWorldIndex;
 }

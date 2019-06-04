@@ -20,6 +20,8 @@ public:
 	void GameInit();
 	void GameUpdate(float dt);
 	void GameRender();
+	World* getCurrentWorld();
+	int getCurrentWorldIndex();
 	Game();
 	~Game();
 };
