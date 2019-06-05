@@ -15,6 +15,7 @@
 #include "Solibaz.h"
 #include "Bird.h"
 #include "Runner.h"
+#include "Ladder.h"
 
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath,const char * collisionTypeCollidePath, const char* gridPath)
 {
@@ -66,6 +67,9 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 			break;
 		case SPRITE_INFO_RUNNER:
 			obj = new Runner();
+			break;
+		case SPRITE_INFO_LADDER:
+			obj = new Ladder();
 			break;
 		default:
 			obj = new BaseObject();

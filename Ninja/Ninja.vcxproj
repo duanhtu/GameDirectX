@@ -112,6 +112,7 @@
     <ClCompile Include="Hawk.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="KEY.cpp" />
+    <ClCompile Include="Ladder.cpp" />
     <ClCompile Include="MovableRect.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="Blood.h" />
     <ClInclude Include="KEY.h" />
+    <ClInclude Include="Ladder.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MovableRect.h" />
     <ClInclude Include="PhysicsObject.h" />

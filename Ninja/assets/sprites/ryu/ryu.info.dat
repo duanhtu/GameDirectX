@@ -2,7 +2,7 @@ Sprite Ryu
 R	G	B
 0	255	165	181
 Animation Count
-8
+9
 
 
 Name
@@ -88,7 +88,6 @@ Frame Count
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 454			14			21				25				3			0
-
 
 
 Name
