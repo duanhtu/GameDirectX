@@ -1,6 +1,6 @@
-Sprite surikenframe
+Sprite Redshuriken
 R	G	B
-0	255	165	181
+255	111	49	152
 Animation Count
 1
 
@@ -8,9 +8,10 @@ Animation Count
 Name
 Animation
 Frame Count
-1
+2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			0			19				19				0			0
+0			0			15				17				0			0
+15			0			15				17				0			0
 
 
