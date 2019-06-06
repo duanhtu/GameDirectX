@@ -179,4 +179,5 @@ void BaseObject::setInitBox(Rect * initBox)
 void BaseObject::restoreLocation()
 {
 	set(initBox->getX(), initBox->getY(), initBox->getWidth(), initBox->getHeight());
+	setIsAlive(true);
 }

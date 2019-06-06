@@ -24,7 +24,7 @@ void Enemy::setDirectionFollowPlayer()
 
 void Enemy::onIntersect(MovableRect * other)
 {
-	if (other->getCollisionType() == COLLISION_TYPE_WEAPON && getRenderActive())
+	if (other->getCollisionType() == COLLISION_TYPE_PLAYER_WEAPON && getRenderActive())
 	{
 		setRenderActive(false);
 		setIsAlive(false);

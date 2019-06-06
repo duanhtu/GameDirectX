@@ -19,7 +19,7 @@ Player * Player::getInstance()
 
 void Player::onUpdate(float dt)
 {
-	if (this->getTop() < Camera::getInstance()->getBottom())
+	if (this->getTop() < Camera::getInstance()->getBottom() || ScoreBoard::getInstance()->getHealth() <= 0)
 	{
 		ScoreBoard* scoreBoard = ScoreBoard::getInstance();
 		scoreBoard->restoreHealth();
@@ -33,9 +33,10 @@ void Player::onUpdate(float dt)
 		{
 			Game::getInstance()->getCurrentWorld()->resetCamera(10);
 		}
+		blinkDelay.setIsTerminated(true);
 		return;
 	}
-
+	
 	blinkDelay.update();
 	if (blinkDelay.isOnTime())
 	{
@@ -199,7 +200,6 @@ void Player::onUpdate(float dt)
 		}	
 		if (keyUpDown)
 		{
-			/*
 			if (getTop() < currentLadder->getTop())
 			{
 				setDy(2);
@@ -209,9 +209,6 @@ void Player::onUpdate(float dt)
 			{
 				setDy(0);
 			}
-			*/
-			setDy(2);
-			setPauseAnimation(false);
 		}
 		else if (keyDownDown)
 		{

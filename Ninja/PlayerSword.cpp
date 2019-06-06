@@ -10,7 +10,7 @@ void PlayerSword::onIntersect(MovableRect * other)
 
 PlayerSword::PlayerSword()
 {
-	setCollisionType(COLLISION_TYPE::COLLISION_TYPE_WEAPON);
+	setCollisionType(COLLISION_TYPE::COLLISION_TYPE_PLAYER_WEAPON);
 }
 
 

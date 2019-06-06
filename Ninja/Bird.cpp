@@ -12,7 +12,7 @@ Bird::Bird()
 }
 void Bird::onIntersect(MovableRect* other)
 {
-	if (getRenderActive() && other->getCollisionType() == COLLISION_TYPE_WEAPON)
+	if (getRenderActive() && other->getCollisionType() == COLLISION_TYPE_PLAYER_WEAPON)
 	{
 		auto effect = new Explosion();
 		effect->setX(getMidX());
