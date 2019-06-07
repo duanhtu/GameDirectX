@@ -45,6 +45,8 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_vx", 60));
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_fire_time", 200));
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_bullet_vx", 200));
+		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_run_delay", 1000));
+		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_fire_delay", 1000));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("bird_r", 2));
 		globalsConfigurationDouble->insert(pair<const char*, double>("bird_min_x", 10));

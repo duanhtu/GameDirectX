@@ -7,6 +7,9 @@ Solicol::Solicol()
 	setSolicolState(SOLICOL_STATE_INVISIBLE);
 	setDirection(TEXTURE_DIRECTION_LEFT);
 	fireTime.init(GLOBALS_D("solicol_fire_time"));
+	runDelay.init(GLOBALS_D("solicol_run_delay"));
+	fireDelay.init(GLOBALS_D("solicol_fire_delay"));
+	runDelay.start();
 }
 
 void Solicol::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
@@ -17,21 +20,32 @@ void Solicol::onCollision(MovableRect * other, float collisionTime, int nx, int 
 
 void Solicol::onUpdate(float dt)
 {
+	runDelay.update();
+	fireDelay.update();
+
 	switch (solicolState)
 	{
 	case SOLICOL_STATE_INVISIBLE:
 		setRenderActive(false);
-		setVx(0);
-		setDx(0);
 		if (getMidX() - Player::getInstance()->getMidX() <= GLOBALS_D("solicol_distance_to_activ"))
 		{
-			setSolicolState(SOLICOL_STATE_VISIBLE);
+			setSolicolState(SOLICOL_STATE_RUN);
 			setRenderActive(true);
+			runDelay.start();
 		}
 		break;
-	case SOLICOL_STATE_VISIBLE:
+	case SOLICOL_STATE_RUN:
+		setVx(GLOBALS_D("solicol_vx")* getDirection());
 		setAnimation(SOLICOL_ACTION_WALK);
-		setVx(GLOBALS_D("solicol_vx")*getDirection());
+		if (runDelay.isTerminated())
+		{
+			setSolicolState(SOLICOL_STATE_FIRE);
+			fireDelay.start();
+		}
+		break;
+	case SOLICOL_STATE_FIRE:
+		setVx(0);
+		setAnimation(SOLICOL_ACTION_FIRE);
 		if (fireTime.atTime())
 		{
 			SolicolBullet* bullet = new SolicolBullet();
@@ -40,6 +54,13 @@ void Solicol::onUpdate(float dt)
 			bullet->setY(getY() - 20);
 			bullet->setRenderActive(true);
 		}
+		if (fireDelay.isTerminated())
+		{
+			setSolicolState(SOLICOL_STATE_RUN);
+			runDelay.start();
+		}
+		break;
+	default:
 		break;
 	}
 	PhysicsObject::onUpdate(dt);

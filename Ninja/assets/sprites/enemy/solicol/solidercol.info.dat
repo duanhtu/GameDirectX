@@ -2,18 +2,24 @@ Sprite solidercol
 R	G	B
 0	0	0	0
 Animation Count
-1
+2
 
 
 Name
 Animation
 Frame Count
-4
+2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 0			1			24				45				15			2
 24			0			28				46				23			2
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 52			0			30				46				24			2
 82			2			24				44				20			0
-
-
