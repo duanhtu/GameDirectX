@@ -4,9 +4,12 @@
 
 Solibaz::Solibaz()
 {
-	setSolibazState(SOLIBAZ_STATE_INVISIBLE);
+	setSolibazState(SOLIBAZ_STATE_SIT);
+	setSprite(SPR(SPRITE_INFO_SOLIBAZ));
 	setDirection(TEXTURE_DIRECTION_LEFT);
 	fireTime.init(GLOBALS_D("solibaz_fire_time"));
+	fireDelay.init(GLOBALS_D("solibaz_fire_delay"));
+	setRenderActive(true);
 	
 }
 void Solibaz::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
@@ -16,27 +19,31 @@ void Solibaz::onCollision(MovableRect * other, float collisionTime, int nx, int 
 }
 void Solibaz::onUpdate(float dt)
 {
+	fireDelay.update();
 	switch(solibazState){
-	case SOLIBAZ_STATE_INVISIBLE:
-		setRenderActive(false);
+	case SOLIBAZ_STATE_SIT:
 		setVx(0);
-		setVy(0);
+		setAnimation(SOLIBAZ_ACTION_SIT);
 		if (getMidX() - Player::getInstance()->getMidX() <= GLOBALS_D("solibaz_distance_to_activ"))
 		{
-			setSolibazState(SOLIBAZ_STATE_VISIBLE);
-			setRenderActive(true);
+			setSolibazState(SOLIBAZ_STATE_ATTACK);
+			fireDelay.start();
 		}
 		break;
-	case SOLIBAZ_STATE_VISIBLE:
+	case SOLIBAZ_STATE_ATTACK:
 		setAnimation(SOLIBAZ_ACTION_ATTACK);
-		setVx(GLOBALS_D("solibaz_vx")*getDirection());
+		setVx(0);
 		if (fireTime.atTime())
 		{
 			SolibazBullet* bullet = new SolibazBullet();
 			bullet->setVx(getDirection()* GLOBALS_D("solibaz_bullet_vx"));
 			bullet->setX(getX());
-			bullet->setY(getY());
+			bullet->setY(getY() - 2);
 			bullet->setRenderActive(true);
+		}
+		if (fireDelay.isTerminated())
+		{
+			setSolibazState(SOLIBAZ_STATE_SIT);
 		}
 		break;
 	}

@@ -1,18 +1,21 @@
 #pragma once
 #include "Enemy.h"
+#include "Delay.h"
 enum SOLIBAZ_STATE
 {
-   SOLIBAZ_STATE_INVISIBLE,
-   SOLIBAZ_STATE_VISIBLE
+   SOLIBAZ_STATE_SIT,
+   SOLIBAZ_STATE_ATTACK
 };
 enum SOLIBAZ_ACTION
 {
+	SOLIBAZ_ACTION_SIT,
 	SOLIBAZ_ACTION_ATTACK,
 };
 class Solibaz :
 	public Enemy
 {
 	SOLIBAZ_STATE solibazState;
+	Delay fireDelay;
 	GameTime fireTime;
 public:
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny)override;
