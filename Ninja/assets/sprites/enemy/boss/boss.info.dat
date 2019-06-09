@@ -1,0 +1,25 @@
+Sprite Boss
+R	G	B
+0	0	0	0
+Animation Count
+2
+
+
+Name
+Animation
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			2			38				54				33			0
+
+
+Name
+Animation
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+38			0			41				56				38			0
+
+

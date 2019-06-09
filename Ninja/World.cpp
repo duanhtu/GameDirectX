@@ -22,6 +22,7 @@
 #include "Bird.h"
 #include "Runner.h"
 #include "Ladder.h"
+#include "Boss.h"
 
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath,const char * collisionTypeCollidePath, const char* gridPath)
 {
@@ -94,6 +95,9 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 			break;
 		case SPRITE_INFO_ITEM_BIGSHURIKEN:
 			obj = new ShurikenItem();
+			break;
+		case SPRITE_INFO_BOSS:
+			obj = new Boss();
 			break;
 		default:
 			obj = new BaseObject();

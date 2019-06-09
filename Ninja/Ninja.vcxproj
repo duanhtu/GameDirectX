@@ -90,6 +90,7 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="BaseObject.cpp" />
+    <ClCompile Include="Boss.cpp" />
     <ClCompile Include="ShurikenItem.cpp" />
     <ClCompile Include="Bird.cpp" />
     <ClCompile Include="BlueBlood.cpp" />
@@ -143,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BaseObject.h" />
+    <ClInclude Include="Boss.h" />
     <ClInclude Include="ShurikenItem.h" />
     <ClInclude Include="Bird.h" />
     <ClInclude Include="BlueBlood.h" />

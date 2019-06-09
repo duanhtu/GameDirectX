@@ -44,6 +44,7 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_ITEM_REDBOX]->InitFromFile("assets/sprites/item/redbox/image.png", "assets/sprites/item/redbox/redbox.info.dat");
 	sprites[SPRITE_INFO_ITEM_BLUEBOX]->InitFromFile("assets/sprites/item/bluebox/image.png", "assets/sprites/item/bluebox/bluebox.info.dat");
 	sprites[SPRITE_INFO_ITEM_BIGSHURIKEN]->InitFromFile("assets/sprites/item/bigshuriken/image.png", "assets/sprites/item/bigshuriken/bigshuriken.info.dat");
+	sprites[SPRITE_INFO_BOSS]->InitFromFile("assets/sprites/enemy/boss/image.png", "assets/sprites/enemy/boss/boss.info.dat");
 }
 SpriteManager::~SpriteManager()
 {
