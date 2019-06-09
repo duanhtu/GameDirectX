@@ -34,6 +34,7 @@ void Player::onUpdate(float dt)
 			Game::getInstance()->getCurrentWorld()->resetCamera(10);
 		}
 		blinkDelay.setIsTerminated(true);
+		Game::getInstance()->getCurrentWorld()->restoreAllObjects();
 		return;
 	}
 	
@@ -296,6 +297,7 @@ Player::Player()
 	playerState = PLAYER_STATE_NORMAL;
 	currentLadder = NULL;
 	firstSecondClimb = false;
+	setCollisionType(COLLISION_TYPE_PLAYER);
 }
 
 void Player::setIsOnAttackSuriken(bool isOnAttack)

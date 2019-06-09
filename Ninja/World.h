@@ -23,6 +23,7 @@ public:
 	void update(float dt);
 	void render();
 	void resetCamera(int addition_delta_y);
+	void restoreAllObjects();
 	World();
 	~World();
 };

@@ -19,6 +19,10 @@ void PhysicsObject::onUpdate(float dt)
 		setDy(getVy()*dt);
 	}
 	setIsOnGround(false);
+	if (this->getTop() < Camera::getInstance()->getBottom() && getCollisionType() != COLLISION_TYPE_PLAYER)
+	{
+		setIsAlive(false);
+	}
 }
 
 PhysicsObject::~PhysicsObject()

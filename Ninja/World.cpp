@@ -143,7 +143,6 @@ void World::Init(const char * folderPath)
 
 void World::update(float dt)
 {
-
 	KEY::getInstance()->update();
 	int worldHeight = tilemap.getWorldHeight();
 	grid.clearAllGridRectObjects();
@@ -238,4 +237,13 @@ void World::resetCamera(int addition_delta_y) {
 	Camera::getInstance()->setLocation(0, tilemap.getWorldHeight() + addition_delta_y);
 }
 
+void  World::restoreAllObjects() {
+	for (size_t i = 0; i < allObjects.Count; i++)
+	{
+		if (!allObjects[i]->getIsAlive() && allObjects[i]->getCollisionType() == COLLISION_TYPE_ENEMY)
+		{
+			allObjects[i]->restoreLocation();
+		}
+	}
+}
 
