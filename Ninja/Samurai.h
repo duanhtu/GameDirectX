@@ -27,6 +27,7 @@ public:
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny)override;
 	void onUpdate(float dt) override;
 	void setSamuraiState(SAMURAI_STATE samuraiState);
+	void backToTheFirstState() override;
 	void onInit(ifstream& fs) override;
 	Samurai();
 	~Samurai();

@@ -240,10 +240,14 @@ void World::resetCamera(int addition_delta_y) {
 void  World::restoreAllObjects() {
 	for (size_t i = 0; i < allObjects.Count; i++)
 	{
-		if (!allObjects[i]->getIsAlive() && allObjects[i]->getCollisionType() == COLLISION_TYPE_ENEMY)
+		//if (!allObjects[i]->getIsAlive() && allObjects[i]->getCollisionType() == COLLISION_TYPE_ENEMY)
+		//{
+		if (allObjects[i]->getCollisionType() == COLLISION_TYPE_ENEMY)
 		{
 			allObjects[i]->restoreLocation();
+			((Enemy*)allObjects[i])->backToTheFirstState();
 		}
+		//}
 	}
 }
 

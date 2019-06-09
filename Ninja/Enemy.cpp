@@ -77,6 +77,11 @@ bool Enemy::canAttackPlayer()
 	return this->getRenderActive();
 }
 
+void Enemy::backToTheFirstState() 
+{
+
+}
+
 Enemy::~Enemy()
 {
 }

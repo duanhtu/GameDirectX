@@ -18,6 +18,7 @@ public:
 	void setRunnerState(RUNNER_STATE runnerState);
 	void onUpdate(float dt) override;
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny)override;
+	void backToTheFirstState() override;
 	void onInit(ifstream& fs) override;
 	Runner();
 	~Runner();

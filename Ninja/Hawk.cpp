@@ -91,6 +91,13 @@ Hawk::Hawk()
 	setRenderActive(true);
 }
 
+void Hawk::backToTheFirstState()
+{
+	int direction = getDirection();
+	setHawkState(HAWK_STATE_INVISIBLE);
+
+}
+
 Hawk::~Hawk()
 {
 }

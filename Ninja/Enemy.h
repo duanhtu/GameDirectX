@@ -14,6 +14,7 @@ public:
 	virtual void onDeath();
 	virtual void onDecreaseHealth();
 	virtual void onCollisionWithWeapon();
+	virtual void backToTheFirstState();
 	virtual bool canAttackPlayer();
 	Enemy();
 	~Enemy();

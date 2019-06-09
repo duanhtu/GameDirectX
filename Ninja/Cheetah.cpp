@@ -58,6 +58,12 @@ Cheetah::Cheetah()
 	setCheetahState(CHEETAH_STATE_INVISIBLE);
 }
 
+void Cheetah::backToTheFirstState()
+{
+	int direction = getDirection();
+	setCheetahState(CHEETAH_STATE_INVISIBLE);
+
+}
 
 Cheetah::~Cheetah()
 {

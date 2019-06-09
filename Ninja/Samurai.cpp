@@ -89,6 +89,13 @@ void Samurai::setSamuraiState(SAMURAI_STATE samuraiState)
 	this->samuraiState = samuraiState;
 }
 
+void Samurai::backToTheFirstState() 
+{
+	int direction = getDirection();
+	setSamuraiState(SAMURAI_STATE_INVISIBLE);
+      
+}
+
 Samurai::~Samurai()
 {
 }

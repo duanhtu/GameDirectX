@@ -71,6 +71,13 @@ void Solicol::onInit(ifstream& fs)
 
 }
 
+void Solicol::backToTheFirstState()
+{
+	int direction = getDirection();
+	setSolicolState(SOLICOL_STATE_INVISIBLE);
+
+}
+
 void Solicol::setSolicolState(SOLICOL_STATE solicolState)
 {
 	this->solicolState = solicolState;

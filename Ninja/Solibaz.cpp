@@ -58,6 +58,13 @@ void Solibaz::setSolibazState(SOLIBAZ_STATE solibazState)
 	this->solibazState = solibazState;
 }
 
+void Solibaz::backToTheFirstState()
+{
+	int direction = getDirection();
+	setSolibazState(SOLIBAZ_STATE_SIT);
+
+}
+
 Solibaz::~Solibaz()
 {
 }

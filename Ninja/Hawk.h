@@ -21,6 +21,7 @@ class Hawk : public Enemy
 	int limitRight;
 public:
 	void setHawkState(HAWK_STATE hawkState);
+	void backToTheFirstState() override;
 	void onUpdate(float dt) override;
 	Hawk();
 	~Hawk();

@@ -19,6 +19,7 @@ public:
 	void setCheetahState(CHEETAH_STATE cheetahState);
 	void onUpdate(float dt) override;
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny)override;
+	void backToTheFirstState() override;
 	void onInit(ifstream& fs) override;
 	Cheetah();
 	~Cheetah();

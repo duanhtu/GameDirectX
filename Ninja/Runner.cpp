@@ -52,6 +52,12 @@ void Runner::onInit(ifstream& fs)
 	setDirection((TEXTTURE_DIRECTION)direction);
 }
 
+void Runner::backToTheFirstState()
+{
+	int direction = getDirection();
+	setRunnerState(RUNNER_STATE_INVISIBLE);
+
+}
 
 Runner::Runner()
 {
