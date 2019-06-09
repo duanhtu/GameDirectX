@@ -5,13 +5,14 @@ Item::Item()
 	setCollisionType(COLLISION_TYPE_ITEM);
 	setRenderActive(false);
 	setPhysicsEnable(false);
+	hasEaten = false;
 }
 
 void Item::onIntersect(MovableRect* other)
 {
 	if (!getRenderActive())
 	{
-		if (other->getCollisionType() == COLLISION_TYPE_WEAPON)
+		if (other->getCollisionType() == COLLISION_TYPE_PLAYER_WEAPON)
 		{
 			setRenderActive(true);
 			setPhysicsEnable(true);

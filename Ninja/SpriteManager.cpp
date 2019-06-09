@@ -32,12 +32,18 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_EXPLOSION]->InitFromFile("assets/sprites/weapon/explosion/image.png", "assets/sprites/weapon/explosion/explosion.info.dat");
 	sprites[SPRITE_EXPLOSION]->image->direction = TEXTURE_DIRECTION_RIGHT;
 	sprites[SPRITE_INFO_SOLICOL_BULLET]->InitFromFile("assets/sprites/weapon/solicol_bullet/image.png", "assets/sprites/weapon/solicol_bullet/solicol_bullet.info.dat");
-	sprites[SPRITE_INFO_ITEM_BLOOD]->InitFromFile("assets/sprites/item/blood/image.png","assets/sprites/item/blood/item_blood.info.dat");
+	sprites[SPRITE_INFO_ITEM_REDBLOOD]->InitFromFile("assets/sprites/item/blood/image.png","assets/sprites/item/blood/redblood.info.dat");
 	sprites[SPRITE_INFO_PLAYER_SHURIKEN]->InitFromFile("assets/sprites/weapon/ryu_shuriken/image.png", "assets/sprites/weapon/ryu_shuriken/ryu_shuriken.info.dat");
 	sprites[SPRITE_INFO_SOLIBAZ]->InitFromFile("assets/sprites/enemy/solibaz/soliderbaz.png", "assets/sprites/enemy/solibaz/soliderbaz.info.dat");
 	sprites[SPRITE_INFO_BIRD]->InitFromFile("assets/sprites/bird/image.png", "assets/sprites/bird/bird.info.dat");
 	sprites[SPRITE_INFO_RUNNER]->InitFromFile("assets/sprites/enemy/runner/image.png","assets/sprites/enemy/runner/runner.info.dat");
 	sprites[SPRITE_INFO_SOLIBAZ_BULLET]->InitFromFile("assets/sprites/weapon/solibaz_bullet/image.png","assets/sprites/weapon/solibaz_bullet/bazo_bullet.info.dat");
+	sprites[SPRITE_INFO_ITEM_BLUEBLOOD]->InitFromFile("assets/sprites/item/blueblood/image.png", "assets/sprites/item/blueblood/blueblood.info.dat");
+	sprites[SPRITE_INFO_ITEM_REDSCORE]->InitFromFile("assets/sprites/item/redscore/image.png", "assets/sprites/item/redscore/redscore.info.dat");
+	sprites[SPRITE_INFO_ITEM_BLUESCORE]->InitFromFile("assets/sprites/item/bluescore/image.png", "assets/sprites/item/bluescore/stamina.info.dat");
+	sprites[SPRITE_INFO_ITEM_REDBOX]->InitFromFile("assets/sprites/item/redbox/image.png", "assets/sprites/item/redbox/redbox.info.dat");
+	sprites[SPRITE_INFO_ITEM_BLUEBOX]->InitFromFile("assets/sprites/item/bluebox/image.png", "assets/sprites/item/bluebox/bluebox.info.dat");
+	sprites[SPRITE_INFO_ITEM_BIGSHURIKEN]->InitFromFile("assets/sprites/item/bigshuriken/image.png", "assets/sprites/item/bigshuriken/bigshuriken.info.dat");
 }
 SpriteManager::~SpriteManager()
 {

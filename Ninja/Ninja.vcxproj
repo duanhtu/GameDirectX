@@ -90,8 +90,12 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="BaseObject.cpp" />
+    <ClCompile Include="ShurikenItem.cpp" />
     <ClCompile Include="Bird.cpp" />
-    <ClCompile Include="Blood.cpp" />
+    <ClCompile Include="BlueBlood.cpp" />
+    <ClCompile Include="BlueBox.cpp" />
+    <ClCompile Include="BlueScore.cpp" />
+    <ClCompile Include="RedBlood.cpp" />
     <ClCompile Include="Butterfly.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Cheetah.cpp" />
@@ -119,6 +123,8 @@
     <ClCompile Include="PlayerShuriken.cpp" />
     <ClCompile Include="PlayerSword.cpp" />
     <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="RedBox.cpp" />
+    <ClCompile Include="RedScore.cpp" />
     <ClCompile Include="Runner.cpp" />
     <ClCompile Include="Samurai.cpp" />
     <ClCompile Include="ScoreBoard.cpp" />
@@ -137,7 +143,11 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="BaseObject.h" />
+    <ClInclude Include="ShurikenItem.h" />
     <ClInclude Include="Bird.h" />
+    <ClInclude Include="BlueBlood.h" />
+    <ClInclude Include="BlueBox.h" />
+    <ClInclude Include="BlueScore.h" />
     <ClInclude Include="Butterfly.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Cheetah.h" />
@@ -160,7 +170,7 @@
     <ClInclude Include="GridRect.h" />
     <ClInclude Include="Hawk.h" />
     <ClInclude Include="Item.h" />
-    <ClInclude Include="Blood.h" />
+    <ClInclude Include="RedBlood.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="Ladder.h" />
     <ClInclude Include="List.h" />
@@ -170,6 +180,8 @@
     <ClInclude Include="PlayerSword.h" />
     <ClInclude Include="PlayerShuriken.h" />
     <ClInclude Include="Rect.h" />
+    <ClInclude Include="RedBox.h" />
+    <ClInclude Include="RedScore.h" />
     <ClInclude Include="Runner.h" />
     <ClInclude Include="Samurai.h" />
     <ClInclude Include="ScoreBoard.h" />

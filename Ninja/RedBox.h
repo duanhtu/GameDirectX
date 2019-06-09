@@ -1,9 +1,9 @@
 #pragma once
 #include"Item.h"
-class Blood : public Item
+class RedBox : public Item
 {
 public:
-	Blood();
-	~Blood();
+	RedBox();
+	~RedBox();
 	void onIntersect(MovableRect* other) override;
 };

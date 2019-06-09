@@ -63,6 +63,7 @@ ScoreBoard::ScoreBoard()
 {
 	scoreBoard = new GameTexture("assets/sprites/misc/score_bar.png", D3DCOLOR_XRGB(10, 20, 60));
 	miscSprite = SpriteManager::getInstance()->getSprite(SPRITE_MISC);
+	shurikenSprite = SpriteManager::getInstance()->getSprite(SPRITE_INFO_ITEM_BIGSHURIKEN);
 	timeGame.init(1000);
 
 	ifstream ifs("assets/sprites/misc/score_bar_item_location.txt");
@@ -113,6 +114,7 @@ void ScoreBoard::render()
 	renderNumber(time, timeLocation.X, timeLocation.Y, timeLocation.MaxLength);
 	renderHealth();
 	renderBossHealth();
+	renderSubWeapon();
 }
 
 void ScoreBoard::update()
@@ -231,4 +233,22 @@ void ScoreBoard::increaseBossHealth(int health)
 int ScoreBoard::getMaxHealth()
 {
 	return maxHealth;
+}
+
+void ScoreBoard::setUseSubWeapon(bool useSubWeapon)
+{
+	this->useSubWeapon = useSubWeapon;
+}
+
+bool ScoreBoard::getUseSubWeapon()
+{
+	return useSubWeapon;
+}
+
+void ScoreBoard::renderSubWeapon()
+{
+	if (this->useSubWeapon)
+	{
+		shurikenSprite->render(135, 16, 0, 0);
+	}
 }

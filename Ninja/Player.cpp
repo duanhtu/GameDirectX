@@ -85,7 +85,7 @@ void Player::onUpdate(float dt)
 
 		PLAYER_ACTION action;
 
-		if (keyAttackPress && !isOnAttack) {
+		if (keyAttackPress && !keyUpDown && !isOnAttack && !isOnAttackSuriken) {
 			setIsOnAttack(true);
 		}
 
@@ -93,7 +93,7 @@ void Player::onUpdate(float dt)
 			setIsOnAttack(false);
 		}
 
-		if (keyAttackSurikenDown && !isOnAttackSuriken && !isOnAttack) {
+		if (keyUpDown && keyAttackPress  && !isOnAttackSuriken && !isOnAttack && ScoreBoard::getInstance()->getUseSubWeapon()) {
 			setIsOnAttackSuriken(true);
 		}
 

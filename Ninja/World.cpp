@@ -11,7 +11,13 @@
 #include"Solicol.h"
 #include "GridRect.h"
 #include "Weapon.h"
-#include "Blood.h"
+#include "RedBlood.h"
+#include "BlueBlood.h"
+#include "RedScore.h"
+#include "BlueScore.h"
+#include "RedBox.h"
+#include "BlueBox.h"
+#include "ShurikenItem.h"
 #include "Solibaz.h"
 #include "Bird.h"
 #include "Runner.h"
@@ -56,8 +62,8 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 		case SPRITE_INFO_SOLICOL:
 			obj = new Solicol();
 			break;
-		case SPRITE_INFO_ITEM_BLOOD:
-			obj = new Blood();
+		case SPRITE_INFO_ITEM_REDBLOOD:
+			obj = new RedBlood();
 			break;
 		case SPRITE_INFO_SOLIBAZ:
 			obj = new Solibaz();
@@ -70,6 +76,24 @@ void World::Init(const char * tilesheetPath, const char * matrixPath, const char
 			break;
 		case SPRITE_INFO_LADDER:
 			obj = new Ladder();
+			break;
+		case SPRITE_INFO_ITEM_BLUEBLOOD:
+			obj = new BlueBlood();
+			break;
+		case SPRITE_INFO_ITEM_REDSCORE:
+			obj = new RedScore();
+			break;
+		case SPRITE_INFO_ITEM_BLUESCORE:
+			obj = new BlueScore();
+			break;
+		case SPRITE_INFO_ITEM_REDBOX:
+			obj = new RedBox();
+			break;
+		case SPRITE_INFO_ITEM_BLUEBOX:
+			obj = new BlueBox();
+			break;
+		case SPRITE_INFO_ITEM_BIGSHURIKEN:
+			obj = new ShurikenItem();
 			break;
 		default:
 			obj = new BaseObject();

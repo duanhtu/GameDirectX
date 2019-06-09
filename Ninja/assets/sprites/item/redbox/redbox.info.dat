@@ -1,0 +1,16 @@
+Sprite RedBox
+R	G	B
+0	255	165	181
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			20				20				0			0
+
+

@@ -11,6 +11,7 @@ struct SCORE_LOCATION
 class ScoreBoard
 {
 	Sprite* miscSprite;
+	Sprite* shurikenSprite;
 	GameTexture* scoreBoard;
 	void renderNumber(int num, int x, int y, int maxLength);
 	void renderHealth();
@@ -34,6 +35,7 @@ class ScoreBoard
 	int score;
 	int time;
 	GameTime timeGame;
+	bool useSubWeapon;
 public:
 	static ScoreBoard* getInstance();
 	ScoreBoard();
@@ -72,6 +74,11 @@ public:
 	int getMaxHealth();
 
 	void setCurrentStageNumber(int currentStageNumber);
+
+	void setUseSubWeapon(bool useSubWeapon);
+	bool getUseSubWeapon();
+	void renderSubWeapon();
+
 };
 
 
