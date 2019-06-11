@@ -22,6 +22,7 @@ public:
 	void GameRender();
 	World* getCurrentWorld();
 	int getCurrentWorldIndex();
+	void goToTheNextStage();
 	Game();
 	~Game();
 };

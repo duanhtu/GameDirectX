@@ -21,10 +21,13 @@ void Game::GameInit()
 	worlds = new World*[3];
 	worlds[0] = new World();
 	worlds[0]->Init("assets/levels/level1");
+	worlds[0]->setInformationStage(0, 2048);
 	worlds[1] = new World();
 	worlds[1]->Init("assets/levels/level2");
+	worlds[1]->setInformationStage(0, 3072);
 	worlds[2] = new World();
 	worlds[2]->Init("assets/levels/level3");
+	worlds[2]->setInformationStage(0, 257);
 	currentWorldIndex = 0;
 	worlds[currentWorldIndex]->resetCamera(10);
 }
@@ -74,4 +77,22 @@ World* Game::getCurrentWorld()
 int Game::getCurrentWorldIndex()
 {
 	return currentWorldIndex;
+}
+
+void Game::goToTheNextStage()
+{
+	if (currentWorldIndex == 2)
+	{
+		return;
+	}
+	currentWorldIndex += 1;
+	if (currentWorldIndex < 2)
+	{
+		worlds[currentWorldIndex]->resetCamera(10);
+	}
+	else
+	{
+		worlds[currentWorldIndex]->resetCamera(40);
+	}
+	Player::getInstance()->restoreLocation();
 }

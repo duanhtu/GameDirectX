@@ -18,6 +18,7 @@ void Boss::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
 
 void Boss::onUpdate(float dt)
 {
+	/*
 	int end = getInitBox()->getX() - 16;
 	int begin = getInitBox()->getX() - 128;
 	if (getX() <= begin &&  !hasChangedDirectionRight) 
@@ -45,6 +46,7 @@ void Boss::onUpdate(float dt)
 	}
 	setVx(GLOBALS_D("samurai_vx")*getDirection());
 	PhysicsObject::onUpdate(dt);
+	*/
 }
 
 

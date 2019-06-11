@@ -23,6 +23,7 @@
 #include "Runner.h"
 #include "Ladder.h"
 #include "Boss.h"
+#include "Game.h"
 
 void World::Init(const char * tilesheetPath, const char * matrixPath, const char * objectsPath,const char * collisionTypeCollidePath, const char* gridPath)
 {
@@ -202,6 +203,17 @@ void World::update(float dt)
 	}
 
 	Player::getInstance()->update(dt);
+	int reduceStageWidth = 0;
+	int stageIndex = Game::getInstance()->getCurrentWorldIndex();
+	if (stageIndex == 1)
+	{
+		reduceStageWidth = 16;
+	}
+	if (stageIndex < 2 && Player::getInstance()->getRight() + Player::getInstance()->getDx() > stageX + stageWidth - reduceStageWidth
+		&& Player::getInstance()->getDx() > 0)
+	{
+		Game::getInstance()->goToTheNextStage();
+	}
 	Camera::getInstance()->update();
 }
 
@@ -249,5 +261,21 @@ void  World::restoreAllObjects() {
 		}
 		//}
 	}
+}
+
+void World::setInformationStage(int stageX, int stageWidth)
+{
+	this->stageX = stageX;
+	this->stageWidth = stageWidth;
+}
+
+int  World::getStageX()
+{
+	return stageX;
+}
+
+int  World::getStageWidth()
+{
+	return stageWidth;
 }
 
