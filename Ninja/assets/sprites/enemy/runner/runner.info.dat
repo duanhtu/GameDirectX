@@ -1,4 +1,4 @@
-Sprite runner
+Sprite runnerfix2
 R	G	B
 0	0	0	0
 Animation Count
@@ -11,7 +11,7 @@ Frame Count
 2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			0			19				46				18			2
-19			2			21				44				19			0
+0			0			17				33				0			0
+17			0			17				33				0			0
 
 

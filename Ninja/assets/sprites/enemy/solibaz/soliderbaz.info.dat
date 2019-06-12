@@ -1,4 +1,4 @@
-Sprite solibaz1
+Sprite bazofix5
 R	G	B
 0	0	0	0
 Animation Count
@@ -11,7 +11,7 @@ Frame Count
 1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			1			28				29				28			1
+0			0			35				30				6			0
 
 
 Name
@@ -20,6 +20,6 @@ Frame Count
 2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			1			28				29				28			1
-28			0			38				30				35			1
+0			0			35				30				6			0
+35			0			36				30				2			0
 
