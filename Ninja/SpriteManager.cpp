@@ -47,6 +47,8 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_ITEM_BLUEBOX]->InitFromFile("assets/sprites/item/bluebox/image.png", "assets/sprites/item/bluebox/bluebox.info.dat");
 	sprites[SPRITE_INFO_ITEM_BIGSHURIKEN]->InitFromFile("assets/sprites/item/bigshuriken/image.png", "assets/sprites/item/bigshuriken/bigshuriken.info.dat");
 	sprites[SPRITE_INFO_BOSS]->InitFromFile("assets/sprites/enemy/boss/image.png", "assets/sprites/enemy/boss/boss.info.dat");
+	sprites[SPRITE_INFO_BOSS]->image->direction = TEXTURE_DIRECTION_RIGHT;
+	sprites[SPRITE_INFO_BOSS_BOMB]->InitFromFile("assets/sprites/weapon/boss_bomb/image.png", "assets/sprites/weapon/boss_bomb/boss_bomb.info.dat");
 }
 SpriteManager::~SpriteManager()
 {

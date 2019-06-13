@@ -1,17 +1,17 @@
-Sprite Boss
+Sprite boss
 R	G	B
-0	0	0	0
+255	255	163	177
 Animation Count
 2
 
 
 Name
-Animation
+Jump
 Frame Count
 1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			2			38				54				33			0
+0			6			34				48				2			4
 
 
 Name
@@ -20,6 +20,6 @@ Frame Count
 1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-38			0			41				56				38			0
+34			0			38				54				0			0
 
 

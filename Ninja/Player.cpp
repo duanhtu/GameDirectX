@@ -88,6 +88,7 @@ void Player::onUpdate(float dt)
 
 		if (keyAttackPress && !keyUpDown && !isOnAttack && !isOnAttackSuriken) {
 			setIsOnAttack(true);
+			isUsingWeapon = true;
 		}
 
 		if (getIsLastFrameAnimationDone() && isOnAttack) {
@@ -96,6 +97,7 @@ void Player::onUpdate(float dt)
 
 		if (keyUpDown && keyAttackPress  && !isOnAttackSuriken && !isOnAttack && ScoreBoard::getInstance()->getUseSubWeapon()) {
 			setIsOnAttackSuriken(true);
+			isUsingWeapon = true;
 		}
 
 		if (getIsLastFrameAnimationDone() && isOnAttackSuriken) {
@@ -298,6 +300,7 @@ Player::Player()
 	currentLadder = NULL;
 	firstSecondClimb = false;
 	setCollisionType(COLLISION_TYPE_PLAYER);
+	isUsingWeapon = false;
 }
 
 void Player::setIsOnAttackSuriken(bool isOnAttack)

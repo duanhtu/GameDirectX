@@ -61,6 +61,10 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("runner_distance_to_activ", 200));
 		globalsConfigurationDouble->insert(pair<const char*, double>("runner_vx", 100));
+
+		globalsConfigurationDouble->insert(pair<const char*, double>("boss_vx", 90));
+		globalsConfigurationDouble->insert(pair<const char*, double>("boss_vy", 165));
+		globalsConfigurationDouble->insert(pair<const char*, double>("boss_stand_delay", 1000));
 	}
 	return globalsConfigurationDouble->at(key);
 }

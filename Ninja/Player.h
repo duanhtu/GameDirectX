@@ -32,7 +32,6 @@ class Player :
 	Delay invisibleDelay;
 	GameTime invisibleTime;
 	GameTime blinkTime;
-	Delay blinkDelay;
 	bool isHit;
 	void drawPlayerSword();
 	void throwPlayerShuriken();
@@ -41,6 +40,8 @@ class Player :
 	boolean firstSecondClimb;
 public:
 	Ladder* currentLadder;
+	Delay blinkDelay;
+	boolean isUsingWeapon;
 	static Player* getInstance();
 	void onUpdate(float dt) override;
 	virtual void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
