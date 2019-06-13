@@ -160,6 +160,9 @@
     <ClCompile Include="BossBomb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BossExplosion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FrameAnimation.h">
@@ -328,6 +331,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BossBomb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BossExplosion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

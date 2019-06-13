@@ -49,6 +49,8 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_BOSS]->InitFromFile("assets/sprites/enemy/boss/image.png", "assets/sprites/enemy/boss/boss.info.dat");
 	sprites[SPRITE_INFO_BOSS]->image->direction = TEXTURE_DIRECTION_RIGHT;
 	sprites[SPRITE_INFO_BOSS_BOMB]->InitFromFile("assets/sprites/weapon/boss_bomb/image.png", "assets/sprites/weapon/boss_bomb/boss_bomb.info.dat");
+	sprites[SPRITE_BOSS_EXPLOSION]->InitFromFile("assets/sprites/weapon/boss_explosion/image.png", "assets/sprites/weapon/boss_explosion/boss_explosion.info.dat");
+	sprites[SPRITE_BOSS_EXPLOSION]->image->direction = TEXTURE_DIRECTION_RIGHT;
 }
 SpriteManager::~SpriteManager()
 {

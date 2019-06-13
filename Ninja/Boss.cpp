@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "BossBomb.h"
 #include "ScoreBoard.h"
+#include "BossExplosion.h"
 
 Boss::Boss()
 {
@@ -11,6 +12,9 @@ Boss::Boss()
 	standDelay.init(GLOBALS_D("boss_stand_delay"));
 	standDelay.start();
 	isFirstJump = true;
+	explosionTimes = 4;
+	hasExploded = false;
+	explodeDelay.init(4000);
 }
 
 void Boss::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
@@ -21,6 +25,7 @@ void Boss::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
 
 void Boss::onUpdate(float dt)
 {
+	explodeDelay.update();
 	standDelay.update();
 	switch (bossState)
 	{
@@ -77,6 +82,48 @@ void Boss::onUpdate(float dt)
 			setAnimation(BOSS_ACTION_JUMP);
 		}
 		break;
+	case BOSS_STATE_DYING:
+		if (!hasExploded)
+		{
+			setVx(0);
+			setVy(0);
+
+			/*
+			explosion1 = new BossExplosion();
+			explosion1->setX(getMidX() + 15);
+			explosion1->setY(getMidY() - 15);
+
+			explosion2 = new BossExplosion();
+			explosion2->setX(getMidX() - 15);
+			explosion2->setY(getMidY() - 15);
+			*/
+
+			
+			explosion3 = new BossExplosion();
+			explosion3->setX(getMidX() - 15);
+			explosion3->setY(getMidY() - 35);
+
+			explosion4 = new BossExplosion();
+			explosion4->setX(getMidX() + 15);
+			explosion4->setY(getMidY() - 35);
+			
+			hasExploded = true;
+		}
+		if (explodeDelay.isTerminated())
+		{
+			setIsAlive(false);
+			/*
+			explosion1->remove();
+			explosion1->setRenderActive(false);
+			explosion2->remove();
+			explosion2->setRenderActive(false);
+			*/
+			explosion3->remove();
+			explosion3->setRenderActive(false);
+			explosion4->remove();
+			explosion4->setRenderActive(false);
+		}
+		break;
 	default:
 		break;
 	}
@@ -104,12 +151,8 @@ void Boss::onIntersect(MovableRect * other)
 
 	if (other->getCollisionType() == COLLISION_TYPE_PLAYER_WEAPON && getRenderActive() && ScoreBoard::getInstance()->getBossHealth() <= 0)
 	{
-		/*
-		setIsAlive(false);
-		auto effect = new ExplosionEffect();
-		effect->setX(getMidX());
-		effect->setY(getMidY());
-		ScoreBar::getInstance()->setScore(ScoreBar::getInstance()->getScore() + 100);
-		*/
+		setBossState(BOSS_STATE_DYING);
+		explodeDelay.start();
+		//ScoreBar::getInstance()->setScore(ScoreBar::getInstance()->getScore() + 100);
 	}
 }

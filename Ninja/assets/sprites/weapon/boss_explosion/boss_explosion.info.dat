@@ -1,0 +1,17 @@
+Sprite explosion
+R	G	B
+0	255	165	181
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			16			21				29				10			14
+21			0			41				45				20			23
+
+
