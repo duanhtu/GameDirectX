@@ -96,7 +96,8 @@ ScoreBoard::ScoreBoard()
 
 	setHealth(maxHealth);
 	setBossHealth(maxHealth);
-	setTime(900);
+	setTime(400);
+	gameOver = false;
 }
 
 
@@ -118,15 +119,27 @@ void ScoreBoard::render()
 }
 
 void ScoreBoard::update()
-{
-	if (timeGame.atTime())
+{ 
+	if (getTime() > 0)
 	{
-		increaseTime(-1);
-		if (getTime() < 0)
+		if (!gameOver)
 		{
-			//
+			if (timeGame.atTime())
+			{
+				increaseTime(-1);
+			}
+		}
+		else
+		{
+			timeGame.init(50);
+			if (timeGame.atTime())
+			{
+				increaseTime(-1);
+				setScore(getScore() + 100);
+			}
 		}
 	}
+
 }
 
 

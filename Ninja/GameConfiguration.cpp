@@ -65,6 +65,7 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("boss_vx", 90));
 		globalsConfigurationDouble->insert(pair<const char*, double>("boss_vy", 165));
 		globalsConfigurationDouble->insert(pair<const char*, double>("boss_stand_delay", 1000));
+		globalsConfigurationDouble->insert(pair<const char*, double>("boss_dying_delay", 8000));
 	}
 	return globalsConfigurationDouble->at(key);
 }

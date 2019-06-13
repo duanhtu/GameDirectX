@@ -37,6 +37,7 @@ class ScoreBoard
 	GameTime timeGame;
 	bool useSubWeapon;
 public:
+	bool gameOver;
 	static ScoreBoard* getInstance();
 	ScoreBoard();
 	~ScoreBoard();

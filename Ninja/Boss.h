@@ -20,7 +20,6 @@ class Boss : public Enemy
 	Delay standDelay;
 	BOSS_STATE bossState;
 	bool isFirstJump;
-	int explosionTimes;
 	bool hasExploded;
 	BossExplosion* explosion1;
 	BossExplosion* explosion2;

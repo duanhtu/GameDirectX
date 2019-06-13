@@ -12,9 +12,8 @@ Boss::Boss()
 	standDelay.init(GLOBALS_D("boss_stand_delay"));
 	standDelay.start();
 	isFirstJump = true;
-	explosionTimes = 4;
 	hasExploded = false;
-	explodeDelay.init(4000);
+	explodeDelay.init(GLOBALS_D("boss_dying_delay"));
 }
 
 void Boss::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
@@ -87,37 +86,30 @@ void Boss::onUpdate(float dt)
 		{
 			setVx(0);
 			setVy(0);
-
-			/*
 			explosion1 = new BossExplosion();
-			explosion1->setX(getMidX() + 15);
-			explosion1->setY(getMidY() - 15);
+			explosion1->setX(getMidX() + 10);
+			explosion1->setY(getMidY() - 20);
 
 			explosion2 = new BossExplosion();
-			explosion2->setX(getMidX() - 15);
-			explosion2->setY(getMidY() - 15);
-			*/
+			explosion2->setX(getMidX() - 20);
+			explosion2->setY(getMidY() - 20);
 
-			
 			explosion3 = new BossExplosion();
-			explosion3->setX(getMidX() - 15);
-			explosion3->setY(getMidY() - 35);
+			explosion3->setX(getMidX() - 20);
+			explosion3->setY(getMidY() + 10);
 
 			explosion4 = new BossExplosion();
-			explosion4->setX(getMidX() + 15);
-			explosion4->setY(getMidY() - 35);
-			
+			explosion4->setX(getMidX() + 10);
+			explosion4->setY(getMidY() + 10);
 			hasExploded = true;
 		}
 		if (explodeDelay.isTerminated())
 		{
 			setIsAlive(false);
-			/*
 			explosion1->remove();
 			explosion1->setRenderActive(false);
 			explosion2->remove();
 			explosion2->setRenderActive(false);
-			*/
 			explosion3->remove();
 			explosion3->setRenderActive(false);
 			explosion4->remove();
@@ -147,12 +139,13 @@ void Boss::onIntersect(MovableRect * other)
 	{
 		ScoreBoard::getInstance()->setBossHealth(ScoreBoard::getInstance()->getBossHealth() - 1);
 		player->isUsingWeapon = false;
+		ScoreBoard::getInstance()->setScore(ScoreBoard::getInstance()->getScore() + 100);
 	}
 
 	if (other->getCollisionType() == COLLISION_TYPE_PLAYER_WEAPON && getRenderActive() && ScoreBoard::getInstance()->getBossHealth() <= 0)
 	{
 		setBossState(BOSS_STATE_DYING);
 		explodeDelay.start();
-		//ScoreBar::getInstance()->setScore(ScoreBar::getInstance()->getScore() + 100);
+		ScoreBoard::getInstance()->gameOver = true;
 	}
 }
