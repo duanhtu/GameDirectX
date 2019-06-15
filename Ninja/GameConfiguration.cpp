@@ -18,7 +18,7 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("object_default_ay", -180));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 60)); 
-		globalsConfigurationDouble->insert(pair<const char*, double>("player_vy_jump", 130));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_vy_jump", 120));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_time", 10));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_delay", 2000));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_invisible_delay", 1000));
@@ -43,7 +43,7 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_distance_to_activ", 150));
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_vx", 60));
-		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_fire_time", 200));
+		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_fire_time", 500));
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_bullet_vx", 200));
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_run_delay", 1000));
 		globalsConfigurationDouble->insert(pair<const char*, double>("solicol_fire_delay", 1000));
@@ -53,7 +53,7 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("bird_max_x", 50));
 		globalsConfigurationDouble->insert(pair<const char*, double>("bird_active_length", 200));
 
-		globalsConfigurationDouble->insert(pair<const char*, double>("solibaz_distance_to_activ", 100));
+		globalsConfigurationDouble->insert(pair<const char*, double>("solibaz_distance_to_activ", 70));
 		globalsConfigurationDouble->insert(pair<const char*, double>("solibaz_vx", 0));
 		globalsConfigurationDouble->insert(pair<const char*, double>("solibaz_bullet_vx", 200));
 		globalsConfigurationDouble->insert(pair<const char*, double>("solibaz_fire_time", 1500));

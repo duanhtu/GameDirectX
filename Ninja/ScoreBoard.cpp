@@ -69,7 +69,7 @@ ScoreBoard::ScoreBoard()
 	ifstream ifs("assets/sprites/misc/score_bar_item_location.txt");
 	ignoreLineIfstream(ifs, 1);
 	ifs >> lifeLocation.X >> lifeLocation.Y >> lifeLocation.MaxLength;
-	setPlayerLife(2);
+	setPlayerLife(10);
 	setScore(0);
 
 	ignoreLineIfstream(ifs, 2);

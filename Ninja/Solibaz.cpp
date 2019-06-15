@@ -38,7 +38,7 @@ void Solibaz::onUpdate(float dt)
 			SolibazBullet* bullet = new SolibazBullet();
 			bullet->setVx(getDirection()* GLOBALS_D("solibaz_bullet_vx"));
 			bullet->setX(getX());
-			bullet->setY(getY() - 2);
+			bullet->setY(getY());
 			bullet->setRenderActive(true);
 		}
 		if (fireDelay.isTerminated())
@@ -62,7 +62,6 @@ void Solibaz::backToTheFirstState()
 {
 	int direction = getDirection();
 	setSolibazState(SOLIBAZ_STATE_SIT);
-
 }
 
 Solibaz::~Solibaz()
