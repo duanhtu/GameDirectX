@@ -196,11 +196,13 @@ void Player::onUpdate(float dt)
 		setAnimation(PLAYER_ACTION_CLIMB);
 		setVx(0);
 		setDx(0);
+		/*
 		if (firstSecondClimb) 
 		{
 			setX(getX() + 10);
 			firstSecondClimb = false;
 		}	
+		*/
 		if (keyUpDown)
 		{
 			if (getTop() < currentLadder->getTop())

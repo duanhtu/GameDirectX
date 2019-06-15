@@ -1,8 +1,8 @@
-Sprite Ryu
+Sprite ryuspritefix3
 R	G	B
 0	255	165	181
 Animation Count
-9
+10
 
 
 Name
@@ -11,19 +11,18 @@ Frame Count
 1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			0			22				39				2			0
+0			0			18				34				0			0
 
 
 Name
 Ryu_Run
 Frame Count
-4
+3
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			0			22				39				2			0
-22			2			25				37				1			0
-47			0			27				39				5			0
-74			3			25				36				5			0
+18			0			21				34				0			0
+39			0			23				34				0			0
+62			0			21				34				0			0
 
 
 Name
@@ -32,10 +31,10 @@ Frame Count
 4
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-454			14			21				25				3			0
-475			15			31				24				4			0
-506			14			24				25				5			0
-530			16			26				23				2			0
+83			11			17				23				0			0
+100			17			23				17				0			0
+123			11			17				23				0			0
+140			17			23				17				0			0
 
 
 Name
@@ -44,7 +43,7 @@ Frame Count
 1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-335			0			22				39				2			0
+163			0			18				34				0			0
 
 
 Name
@@ -53,32 +52,31 @@ Frame Count
 3
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-99			1			27				38				6			0
-126			3			40				36				0			0
-166			2			33				37				0			0
+181			0			19				34				0			2
+200			0			37				34				0			0
+237			0			26				34				0			0
 
 
 Name
 Ryu_SitAttack
 Frame Count
-4
+3
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-335			0			22				39				2			0
-357			0			24				39				4			0
-381			0			42				39				4			0
-423			0			31				39				3			0
+263			0			19				34				0			0
+282			0			36				34				0			0
+318			0			26				34				0			0
 
 
 Name
-Ryu_AttackSuriken
+Ryu_AttackShuriken
 Frame Count
 3
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-199			2			28				37				3			0
-227			4			32				35				3			0
-259			4			34				35				5			0
+344			0			19				34				0			2
+363			0			27				34				0			0
+390			0			27				34				0			0
 
 
 Name
@@ -87,7 +85,7 @@ Frame Count
 1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-454			14			21				25				3			0
+83			11			17				23				0			0
 
 
 Name
@@ -96,19 +94,19 @@ Frame Count
 2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-293			5			22				34				12			0
-315			8			20				31				12			0
+417			2			17				32				0			0
+434			4			17				30				0			0
 
 
 Name
-Animation
+Ryu_JumpAttack
 Frame Count
 4
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-556			12			31				27				3			0
-587			10			28				29				3			0
-615			14			29				25				1			0
-644			11			27				28				2			0
+451			11			25				23				0			0
+476			9			23				25				0			1
+499			11			25				23				0			0
+524			9			23				25				0			1
 
 
